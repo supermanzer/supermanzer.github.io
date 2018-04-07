@@ -1,0 +1,24 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "A test of GitHub pages to showcase web dev",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supermanzer/supermanzer.github.io.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "scss"
+  ],
+  "author": "C. Ryan Manzer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supermanzer/supermanzer.github.io/issues"
+  },
+  "homepage": "https://supermanzer.github.io"
+}
