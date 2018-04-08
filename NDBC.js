@@ -44,11 +44,17 @@ function getLastFullMonthURL() {
     let mNum = new Date(Date.now()).getMonth();
     let urlIsValid = false;
     let mA = '';
+    let base_url ='';
     do {
         mNum--;
         mA = monthAbbrev(mNum);
+        base_url = `http://www.ndbc.noaa.gov/data/stdmet/${mA}/46042.txt`;
         urlIsValid = checkURL(base_url);
     } while (urlIsValid === false && mNum >= 0);
-    var base_url = `http://www.ndbc.noaa.gov/data/stdmet/${mA}/46042.txt`;
-    return base_url;
+    if (urlIsValid) {
+        return base_url;
+    } else {
+        return "I'm sorry.  Something is amok with this code."
+    }
+
 }
