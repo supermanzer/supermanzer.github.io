@@ -3,25 +3,60 @@
     <head>
         <meta charset="utf-8">
         <title>Test Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
         <style media="screen">
-            html,
-            body,
-            header,
-            #intro {
-            height: 100%;
+            header {
+                background-image: linear-gradient( 135deg, #79F1A4 10%, #0E5CAD 100%);
             }
-            main {
-                height: 100%;
-                background-image: linear-gradient( 135deg, #C2FFD8 10%, #465EFB 100%);
+            h2.no-um {
+                margin-top: 0em;
+            }
+            h5.no-bm {
+                margin-bottom: 0px;
+            }
+            body {
+                font: 12px sans-serif;
+            }
+            hr.header {
+                margin-top: 0px;
+                 height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+            }
+            hr.section-header {
+                border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
             }
         </style>
     </head>
     <body>
         <main>
-            <h1>Test Page 1</h1>
-            <hr>
-            <h4>The initial test of Github pages for <a href="https://github.com/supermanzer">Supermanzer</a> </h4>
+            <header class="">
+                <h2 class="no-um">Supermanzer Showcase</h2>
+                <h5 class="no-bm">The initial test of Github pages for <a href="https://github.com/supermanzer">Supermanzer</a> </h5>
+
+            </header>
+            <hr class="header">
+            <div class="container">
+
+                <!-- D3 Plotting Section -->
+                <section>
+                    <h5>Data Visualizations</h5>
+                    <p>As I am very excited and interested in visualizing data and seek a more engaging and accessible platform for this work than scientific publication, web development using the D3 library seems like a good fit.</p>
+                    <p>Since my recent scientific work has been concerned with the oceanography of the Monterey Bay, that is what I will be focusing on for these visualizations.</p>
+                    <hr class="section-header">
+                    <h6>Monterey Bay Regional Data Buoy - <a href="#">NDBC 46042</a></h6>
+                    <svg id="wind_hist">
+
+                    </svg>
+                </section>
+
+            </div>
+
+
         </main>
         <script src="https://d3js.org/d3.v5.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+         <script src="NDBC.js"></script>
+         <script type="text/javascript">
+            //var dataURL = getLastFullMonthURL();
+         </script>
     </body>
 </html>
