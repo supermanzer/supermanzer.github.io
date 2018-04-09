@@ -58,3 +58,15 @@ function getLastFullMonthURL() {
     }
 
 }
+
+
+function plotStdMet() {
+    d3.tsv("Feb_46042.tsv", function(data, error){
+        if (error) {
+            throw error;
+        }
+        data.forEach(function(d) {
+            console.log(d);
+        })
+    });
+}
