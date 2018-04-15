@@ -1,11 +1,14 @@
 """
  This module contains class definitions for useful data parsing.
 
+ Classes:
+   NDBCParse - An initial attempt at building out a class for reading and parsing NDBC buoy data.
+
 """
 
 import requests
 import json
-import datetime as dt
+from datetime import datetime as dt
 import pandas as pd
 
 
@@ -14,8 +17,8 @@ class NDBCParse:
    This class contains functions used to fetch and parse data from National Data Buoy Center stations.
 
   Attributes:
-    NDBC_DB (str): The numeric identifier of the data buoy whose data is to be gathered for plotting.
-    OUTFILE (str): The name of the file to be generated when writing out data.
+    station_id (str): The numeric identifier of the data buoy whose data is to be gathered for plotting.
+    file_name (str): The name of the file to be generated when writing out data.
 
    Methods/Functions:
     stdmetToJSON: This function gathers (via HTTP GET request) the most recent standard meteorological summary from NDBC data buoy and converts the text file into a python dictionary which is then stringified into a JSON file.
@@ -40,7 +43,7 @@ class NDBCParse:
      Returns:
          None
      """
-     self.NDBC_DB = station_id
+     self.station_id = station_id
 
   def set_outfile(self, filename):
      """
@@ -52,31 +55,36 @@ class NDBCParse:
      Returns:
          None
      """
-     self.OUTFILE = filename
+     self.file_name = filename
 
 
-  def stdmet_to_json(self):
+  def stdmet_to_json(self, orient='index', date_format='iso'):
      """
      This method uses the current date and the NDBC_DB value to collect
      the most recent standard meteorological summary from the National
      Data Buoy Center (NDBC).  It converts the text returned into a
      Python dictionary which is then saved as a JSON file.  The
-     filename is set by the OUTFILE property.
+     filename is set by the file_name property.
+
+     Args:
+       orient: the orientation of the JSON object produced from the Pandas DataFrame.  Default is index.
+       date_format: The format of the datetime string that will be output to the JSON file.  Default is iso.
 
      Returns:
-         file_name file is saved to current directory.
+         None but file (identified by file_name) is saved to current directory.
      """
      import pdb; pdb.set_trace()
-     month_num = dt.datetime.today().month
+
+     month_num = dt.today().month
 
      url_is_valid = False
      # Looping through potentially available months.
      while month_num >=0 and not url_is_valid:
-         month_abbrv = dt.datetime(dt.datetime.today().year, month_num, 1).strftime('%b')
+         month_abbrv = dt(dt.today().year, month_num, 1).strftime('%b')
          my_url = self.__BASEURL__.format(month=month_abbrv, station=self.station_id)
          res = requests.head(my_url)
          if res.status_code == 200:
-             data_df = pandas.read_csv(my_url, '\s+')
+             data_df = pd.read_csv(my_url, '\s+')
              url_is_valid = True
          month_num -= 1
     # Now we have our data in a pandas dataframe.  However, our first
@@ -86,16 +94,26 @@ class NDBCParse:
     # objects.
 
     # We check to make sure the first row is the units.
-    if data_df.loc[0][0][0] == '#':
-      units = data_df.loc[0]
-      data_df = data_df.drop([0]) # We need to remove this so our vector operations can proceed.
-   dt_index_cols = ['#YY', 'MM', 'DD', 'hh']
-   if 'mm' in list(data_df.columns):
-       dt_index_cols.append('mm')
+     if data_df.loc[0][0][0] == '#':
+         units = data_df.loc[0]
+         data_df = data_df.drop([0]) # We need to remove this so our vector operations can proceed.
+     # Building a list of column names and a dictionary mapping them to
+     # string formatting parameters.
+     dt_index_cols = ['#YY', 'MM', 'DD', 'hh']
+     dt_format_vals = {'#YY': '%Y', 'MM': '%m', 'DD': '%d', 'hh': '%H'}
 
-   # Setting the datetime component columns as our index
-   data_df.set_index(dt_index_cols, inplace=True)
-   # Extracting the columns - this won't be very efficient but we are
-   # only doing this once a month so I'm not concered...yet.
-   dt_vals = data_df.index.values
-   
+     if 'mm' in list(data_df.columns):
+         dt_index_cols.append('mm')
+         dt_format_vals['mm'] = '%M'
+     # Using our dictionary to build a formatting string for datetime
+     dt_format_str = ' '.join([dt_format_vals[x] for x in dt_index_cols])
+
+     # Setting the datetime component columns as our index
+     data_df.set_index(dt_index_cols, inplace=True)
+     # Extracting the columns - this won't be very efficient but we are
+     # only doing this once a month so I'm not concered...yet.
+
+     # I have yet to figure out how to nest multiple functions in a map call so at present this will take two lines.
+     dt_vals = [dt.strptime(' '.join(x), dt_format_str) for x in data_df.index.values]
+     data_df.index = dt_vals
+     data_df.to_json(self.file_name, date_format=date_format, orient=orient)
