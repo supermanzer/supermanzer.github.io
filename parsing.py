@@ -73,7 +73,6 @@ class NDBCParse:
      Returns:
          None but file (identified by file_name) is saved to current directory.
      """
-     import pdb; pdb.set_trace()
 
      month_num = dt.today().month
 
@@ -110,10 +109,8 @@ class NDBCParse:
 
      # Setting the datetime component columns as our index
      data_df.set_index(dt_index_cols, inplace=True)
-     # Extracting the columns - this won't be very efficient but we are
-     # only doing this once a month so I'm not concered...yet.
-
-     # I have yet to figure out how to nest multiple functions in a map call so at present this will take two lines.
+     # Converting tuples of date/time components from columns into Python datetime objects.
      dt_vals = [dt.strptime(' '.join(x), dt_format_str) for x in data_df.index.values]
+     # Setting our index to our datetime list
      data_df.index = dt_vals
      data_df.to_json(self.file_name, date_format=date_format, orient=orient)
