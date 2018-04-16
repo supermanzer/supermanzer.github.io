@@ -112,7 +112,7 @@
 
                  var yMax = d3.max(data, function(d){return d.length});
                  var yMin = d3.min(data, function(d){return d.length});
-                 var colorScale = d3.scaleSequential(d3.interpolateCool)
+                 var colorScale = d3.scaleSequential(d3.interpolateYlGnBu)
                         .domain([-20, yMax]);
 
                  var y = d3.scaleLinear()
