@@ -53,7 +53,10 @@
 
                             </svg>
                         </section>
+                        <button id="test_url" type="button" name="button">Click to Test URL actions</button>
+                        <div class="valid_url">
 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,6 +69,12 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
          <script src="NDBC.js"></script>
          <script type="text/javascript">
+            var btn = document.querySelector('#test_url')
+            btn.onclick = function(){
+                let url = getLastFullMonthURL();
+                let mydiv = document.querySelector('div.valid_url');
+                mydiv.texContent = url;
+            }
             function getMonthName(mNum) {
                 mNames = ['January', 'February', 'March', "April", 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                 return mNames[mNum]
