@@ -1,170 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Supermanzer Data Viz</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-        <style media="screen">
-            header {
-                background-image: linear-gradient( 180deg, #79F1A4 10%, #0E5C9C 100%);
-            }
-            h2.no-um {
-                margin-top: 0em;
-            }
-            h5.no-bm {
-                margin-bottom: 0px;
-            }
-            body {
-                font: 12px sans-serif;
-            }
-            hr.header {
-                margin-top: 0px;
-                 height: 12px; border: 0; box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
-            }
-            hr.section-header {
-                border: 0; height: 1px; background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-            }
-            a {
-                text-decoration: underline;
-            }
-        </style>
-    </head>
-    <body>
-        <main>
-            <div class="container">
-                <header class="z-depth-4">
-                    <h2 class="no-um">Supermanzer Showcase</h2>
-                    <h5 class="no-bm">The initial test of Github pages for <a href="https://github.com/supermanzer">Supermanzer</a> </h5>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Supermanzer Showcase</title>
 
-                </header>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col s12">
-                        <!-- D3 Plotting Section -->
-                        <section>
-                            <h5>Data Visualizations</h5>
-                            <p>As I am very excited and interested in visualizing data and seek a more engaging and accessible platform for this work than scientific publication, web development using the D3 library seems like a good fit.</p>
-                            <p>Since my recent scientific work has been concerned with the oceanography of the Monterey Bay, that is what I will be focusing on for these visualizations.</p>
-                            <p><strong>I am finding the parsing of NDBC text files cumbersome in Javascript.  To that end I will be employing a Python class I am in the process of building.  These efforts can be tracked in the repository for this project, <a href="https://github.com/supermanzer/supermanzer.github.io">here</a> </strong> </p>
-                            <hr class="section-header">
-                            <h6>Monterey Bay Regional Data Buoy - <a href="http://www.ndbc.noaa.gov/station_page.php?station=46042">NDBC 46042</a></h6>
-                            <svg id="wind_hist" width="760" height="500">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+    <!--  <a id="logo-container" href="#" class="brand-logo">Supermanzer</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
 
-                            </svg>
-                        </section>
-                        <button id="test_url" type="button" name="button">Click to Test URL actions</button>
-                        <div class="valid_url">
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+    </div>
+  </nav>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-darken-2">Supermanzer Showcase</h1>
+        <div class="row center">
+          <h5 class="header col s12 light black-text ">A simple platform for me (<a href="https://www.github.com/supermanzer">Ryan Manzer</a>) to test out different concepts related to data processing, data visualization, and web development. I may come up with other uses later on.</h5>
+        </div>
+        <div class="row center">
+         <a href="https://github.com/supermanzer/supermanzer.github.io" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Go To Repository</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="images/beach_sunset.jpg" alt="Unsplashed background img 1"></div>
+  </div>
 
 
-        </main>
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="d3-scale-chromatic.js">
-        </script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-         <script src="NDBC.js"></script>
-         <script type="text/javascript">
-            var btn = document.querySelector('#test_url')
-            btn.onclick = function(){
-                let url = getLastFullMonthURL();
-                let mydiv = document.querySelector('div.valid_url');
-                mydiv.texContent = url;
-            }
-            function getMonthName(mNum) {
-                mNames = ['January', 'February', 'March', "April", 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                return mNames[mNum]
-            }
-            // Defining which directions are upwelling and downwelling favorable
+  <div class="container">
+    <div class="section">
 
-             // Have updated data to columnar format.  This will require different parsing.
-             d3.json("stdmet.json", function(error, data) {
-                 if (error) {
-                     throw error;
-                 }
-                 columns = Object.keys(data);
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">device_hub</i></h2>
+            <h5 class="center">Data Processing</h5>
 
-                 for (var i = 0; i < columns.length; i++) {
-                     k = columns[i];
-                     if (i === 0) {
-                         var time = Object.keys(data[k]).map(x => new Date(x));
-                         data['time'] = time;
-                     }
-                     data[k] = Object.values(data[k]).map(x => +x);
-                 }
-                 var values = data;
+            <p class="light">In both my work building business administration applications and my academic studies in oceanography, figuring out efficient and clever ways to find, extract, and process data has been a critical component.  I even find such activities enjoyable.  Here I will mostly be focusing on how I can turn a simple static page into a Javascript powered data visualization platform.</p>
+          </div>
+        </div>
 
-                 var txtTitle = 'Histogram of Wind Direction for ' + getMonthName(data['time'][20].getMonth()) + " " + data['time'][20].getFullYear();
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">equalizer</i></h2>
+            <h5 class="center">Data Visualization</h5>
 
-                 var formatCount = d3.format(",.0f");
+            <p class="light">Much of the work I did for my MS invovled visualizing oceanographic data using <a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab">Matlab</a>. While it's an extremely useful platform, I want to expand the reach of my data visualizations and not be tethered to a license.  Thus I am turning to Javascript and the D3 plotting library to develop interactive plots of oceanographic data.  This is an ongoing pursuit and the graphs I display here will be regularly updated.</p>
+          </div>
+        </div>
 
-                 var svg = d3.select("svg#wind_hist"),
-                 margin = {top: 10, right: 30, bottom: 30, left: 30},
-                 width = +svg.attr("width") - margin.left - margin.right,
-                 height = +svg.attr("height") - margin.top - margin.bottom,
-                 g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">code</i></h2>
+            <h5 class="center">Web Development</h5>
 
-                 var max = d3.max(values.WDIR);
-                 var min = d3.min(values.WDIR);
-                 var x = d3.scaleLinear()
-                     .domain([min, max])
-                     .range([0, width ]);
+            <p class="light">I think the web is a great vehicle for communicating science that has yet to be fully realized.  I would like to explore general web development to better understand how I can use structure, style, and interactive components to communicate and engage others.  However I am still quite a novice and will be relying on many more talented developers to aid me in my quest.  I have to thank all the many contributors at <a href="http://materializecss.com/">MaterializeCSS</a> for this lovely template and many spiffy components.</p>
+          </div>
+        </div>
+      </div>
 
-                 var data = d3.histogram()
-                     .domain(x.domain())
-                     .thresholds(x.ticks(20))
-                     (values.WDIR);
-
-                 var yMax = d3.max(data, function(d){return d.length});
-                 var yMin = d3.min(data, function(d){return d.length});
-                 var colorScale = d3.scaleSequential(d3.interpolateYlGnBu)
-                        .domain([-20, yMax]);
-
-                 var y = d3.scaleLinear()
-                     .domain([0, yMax])
-                     .range([height, 0]);
-
-                 var bar = g.selectAll('.bar')
-                    .data(data)
-                    .enter().append("g")
-                        .attr("class", "bar")
-                        .attr('transform',function(d){return  'translate(' + x(d.x0) + ',' + y(d.length) + ')'});
-
-                bar.append("rect")
-                    .attr("x",1)
-                    .attr("width", x(data[0].x1) - x(data[0].x0) - 1)
-                    .attr("height", function(d) {return height - y(d.length);})
-                    .attr("fill", function(d){return colorScale(d.length)});
+    </div>
+  </div>
 
 
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light black-text">My focus is on the ocean...in case you haven't noticed yet.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/ocean_sunset.jpg" alt="Unsplashed background img 2"></div>
+  </div>
 
-                svg.append('text')
-                    .attr("x", (width/2))
-                    .attr("y", 20)
-                    .attr("text-anchor", "middle")
-                    .attr("class", "graph-title")
-                    .text(txtTitle);
+  <div class="container">
+    <div class="section">
 
-                g.append("g")
-                    .attr("class", "axis axis--x")
-                    .attr('transform', 'translate(0,' + height + ')')
-                    .call(d3.axisBottom(x));
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contribute</h4>
+          <p class="left-align light">As I'm a novice at much of this work I would be happily invite any interested parties to contribute. I will be attempting to build out data parsing Javascript components as well as interactive plots of data.  In some cases I may have to rely on server side code (Python 3) to handle data wrangling and write out to a static file.  In those cases I will host both the static data file and the Python script in this repository for anyone to examine, fork, or comment on.</p>
+        </div>
+      </div>
 
-                g.append("g")
-                    .call(d3.axisLeft(y));
-             });
+    </div>
+  </div>
 
 
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light ">I live in Monterey, so this seemed appropriate</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/cypress_ocean.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
 
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+  </div> -->
+    <div class="footer-copyright">
+      <div class="container">
+      Made by Ryan Manzer with significant help from <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
 
 
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
-
-         </script>
-    </body>
+  </body>
 </html>
