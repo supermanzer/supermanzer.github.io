@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Supermanzer Showcase</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    <!-- Make sure to mirror navbar code -->
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+          <a id="logo-container" href="https://supermanzer.github.io" class="brand-logo black-text right">Home</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+             <li><a href="/ndbc46042.html">NDBC Data Vis</a></li>
+         </ul>
+
+           <ul id="nav-mobile" class="sidenav">
+             <li><a href="/ndbc46042.html">NDBC Data Vis</a></li>
+           </ul>
+      </div>
+    </nav>
+    <!-- General Description -->
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col sm12 m8">
+                <div class="section">
+                    <h5 class="center">NDBC 46042 - Regional Montery Bay</h5>
+                    <p class="light">For much of the oceanographic research done on the Monterey Bay, the regional National Data Buoy Center (NDBC) Buoy 46042 has been used. Located 27 nautical miles west northwest (WNW) of the city of Monterey, this buoy measures the regional oceanic conditions near the mouth of the Monterey Bay.  My own research has relied upon it greatly and I hope to use my familiarity with this data as a fertile source for developing interactive data visualizations. </p>
+                </div>
+            </div>
+            <div class="col sm12 m4 ">
+                <div class="container ">
+                    <img src="images/46042.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row graphs">
+            <h5>Upwelling</h5>
+            <p class="light ">Since much of the interest in the Monterey Region is due to the very productive nearshore ecosystem, which is in turn due to the upwelling centers north and south of the Monterey Bay, much attention is paid to whether or not wind conditions are upwelling favorable. One of the key components is the general wind direction so let's take a look at that.</p>
+            <svg id="wind_hist" width="760" height="500">
+
+            </svg>
+        </div>
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/d3-scale-chromatic.js"></script>
+    <script src="js/NDBC.js"></script>
+    <script type="text/javascript">
+    plotStdMet();
+    </script>
+</body>
