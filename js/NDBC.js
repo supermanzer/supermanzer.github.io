@@ -56,7 +56,7 @@
           var svg = d3.select("svg#wind_hist")
                 .attr('width', w)
                 .attr('height', h),
-          margin = {top: 10, right: 30, bottom: 30, left: 30},
+          margin = {top: 10, right: 30, bottom: 60, left: 60},
           width = +svg.attr("width") - margin.left - margin.right,
           height = +svg.attr("height") - margin.top - margin.bottom,
           g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -106,7 +106,7 @@
                  tt.transition()
                     .duration(200)
                     .style("opacity", 0.8);
-                tt.html("WDIR: " + d.x0 + " - " + d.x1 + "<hr/> " + d.length + " hours - " + d3.format(".1%")(d.length/totalHours) + " of total")
+                tt.html("WDIR: " + d.x0 + "&deg; - " + d.x1 + "&deg; <hr/> " + d.length + " hours - " + d3.format(".1%")(d.length/totalHours) + " of total")
                     .style("left", (d3.event.pageX) + "px")
                     .style("top",(d3.event.pageY -28)+ "px");
                 })
@@ -127,9 +127,22 @@
              .attr("class", "axis axis--x")
              .attr('transform', 'translate(0,' + height + ')')
              .call(d3.axisBottom(x));
+        //Add x axis label - it's good practice
+        svg.append("text")
+            .attr('transform', 'translate(' + w/2 + ',' + (h+margin.top - 20) + ')')
+            .style("text-anchor","middle")
+            .text("Wind Direction (blowing from)")
 
          g.append("g")
              .call(d3.axisLeft(y));
+
+        svg.append('text')
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 )
+            .attr("x", 0 - (h/2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("# of Hours");
       });
   }
 
