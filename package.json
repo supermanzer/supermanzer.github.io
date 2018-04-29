@@ -1,0 +1,23 @@
+{
+  "name": "Supermanzer Showcase",
+  "version": "1.0.0",
+  "description": "A showcase of front-end web development techniques and interests",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supermanzer/supermanzer.github.io.git"
+  },
+  "keywords": [
+    "d3",
+    "data-viz"
+  ],
+  "author": "C. Ryan Manzer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supermanzer/supermanzer.github.io/issues"
+  },
+  "homepage": "https://github.com/supermanzer/supermanzer.github.io"
+}

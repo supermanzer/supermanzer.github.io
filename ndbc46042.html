@@ -43,10 +43,22 @@
         <hr>
         <div class="row graphs">
             <h5>Upwelling</h5>
-            <p class="light ">Since much of the interest in the Monterey Region is due to the very productive nearshore ecosystem, which is in turn due to the upwelling centers north and south of the Monterey Bay, much attention is paid to whether or not wind conditions are upwelling favorable. One of the key components is the general wind direction so let's take a look at that.</p>
-            <svg id="wind_hist" width="760" height="500">
-
-            </svg>
+            <p class="light ">Since much of the interest in the Monterey Region is due to the very productive nearshore ecosystem, which is in turn due to the upwelling centers north and south of the Monterey Bay, much attention is paid to whether or not wind conditions are upwelling favorable. One of the key components is the general wind direction so let's take a look at that in a few different ways.</p>
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s4"><a id="wh_tab" href="#d_wind_hist">Flat Histogram</a></li>
+                        <li class="tab col s4"> <a id="rh_tab" href="#d_rad_hist">Radial Histogram</a> </li>
+                    </ul>
+                </div>
+                <div id="d_wind_hist" class="col s12">
+                    <svg id="wind_hist"></svg>
+                </div>
+                <div id="d_rad_hist" class="col s12">
+                    <h4 class="center">Coming Soon!</h4>
+                    <svg id = "rad_hist"></svg>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -58,6 +70,13 @@
     <script src="js/d3-scale-chromatic.js"></script>
     <script src="js/NDBC.js"></script>
     <script type="text/javascript">
+
     plotStdMet();
+    window.onresize = function () {
+        // clear the svg element
+        document.getElementById('wind_hist').innerHTML ="";
+        // replot to reflect the adjusted window size
+        plotStdMet();
+    }
     </script>
 </body>

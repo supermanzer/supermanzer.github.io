@@ -1,8 +1,8 @@
 """
- This module contains class definitions for useful data parsing.
+ NDBC.py - this file contains classes pertaining to the acquisition and transformation of National Data Buoy Center (NDBC) oceanographic data.
 
  Classes:
-   NDBCParse - An initial attempt at building out a class for reading and parsing NDBC buoy data.
+   DataBuoy - An initial attempt at building out a class for reading and parsing NDBC buoy data.
 
 """
 
@@ -12,7 +12,7 @@ from datetime import datetime as dt
 import pandas as pd
 
 
-class NDBCParse:
+class DataBuoy:
   """
    This class contains functions used to fetch and parse data from National Data Buoy Center stations.
 
@@ -21,7 +21,7 @@ class NDBCParse:
     file_name (str): The name of the file to be generated when writing out data.
 
    Methods/Functions:
-    stdmetToJSON: This function gathers (via HTTP GET request) the most recent standard meteorological summary from NDBC data buoy and converts the text file into a python dictionary which is then stringified into a JSON file.
+    stdmet_to_json: This function gathers (via HTTP GET request) the most recent standard meteorological summary from NDBC data buoy and converts the text file into a python dictionary which is then stringified into a JSON file.
   """
 
   __BASEURL__ = 'http://www.ndbc.noaa.gov/data/stdmet/{month}/{station}.txt'
