@@ -53,6 +53,11 @@
           var w = document.getElementById('d_wind_hist').clientWidth,
               h = .65 * w;
 
+         // Let's adjust our title's shape too
+         if (w < 600) {
+             var txtTitle = 'Histogram of Wind Direction <br/> for ' + getMonthName(data['time'][20].getMonth()) + " " + data['time'][20].getFullYear();
+         }
+
           var svg = d3.select("svg#wind_hist")
                 .attr('width', w)
                 .attr('height', h),
