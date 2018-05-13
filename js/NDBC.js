@@ -29,7 +29,7 @@
  /**
   * Generates histogram plot of wind direction
   */
-  function plotStdMet() {
+ function plotStdMet() {
       d3.json("data/stdmet.json", function(error, data) {
           if (error) {
               throw error;
@@ -45,8 +45,8 @@
               data[k] = Object.values(data[k]).map(x => +x);
           }
           var values = data;
-
-          var txtTitle = 'Histogram of Wind Direction for ' + getMonthName(data['time'][20].getMonth()) + " " + data['time'][20].getFullYear();
+          var txtTitle = Array()
+          txtTitle[0] = 'Histogram of Wind Direction for ' + getMonthName(data['time'][20].getMonth()) + " " + data['time'][20].getFullYear();
 
           var formatCount = d3.format(",.0f");
           // scaling our plot to the window size.
@@ -55,7 +55,8 @@
 
          // Let's adjust our title's shape too
          if (w < 600) {
-             var txtTitle = 'Histogram of Wind Direction <br/> for ' + getMonthName(data['time'][20].getMonth()) + " " + data['time'][20].getFullYear();
+             txtTitle[0] = 'Histogram of Wind Direction';
+             txtTitle[1] = 'for ' +getMonthName(data['time'][20].getMonth()) + " " + data['time'][20].getFullYear();
          }
 
           var svg = d3.select("svg#wind_hist")
@@ -121,12 +122,17 @@
                     .style("opacity", 0);
             });
 
-         svg.append('text')
-             .attr("x", (width/2))
-             .attr("y", 20)
-             .attr("text-anchor", "middle")
-             .attr("class", "graph-title")
-             .text(txtTitle);
+         let y_pos = 0;
+         for (var i = 0; i < txtTitle.length; i++) {
+             y_pos += 20;
+             svg.append('text')
+                 .attr("x", (width/2))
+                 .attr("y", y_pos)
+                 .attr("text-anchor", "middle")
+                 .attr("class", "graph-title")
+                 .text(txtTitle[i]);
+         }
+
 
          g.append("g")
              .attr("class", "axis axis--x")
