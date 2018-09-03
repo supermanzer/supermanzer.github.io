@@ -30,7 +30,7 @@
   * Generates histogram plot of wind direction
   */
  function plotStdMet() {
-      d3.json("data/stdmet.json", function(error, data) {
+      d3.json("static/data/stdmet.json", function(error, data) {
           if (error) {
               throw error;
           }

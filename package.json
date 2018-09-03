@@ -1,5 +1,5 @@
 {
-  "name": "Supermanzer Showcase",
+  "name": "Portfolio",
   "version": "1.0.0",
   "description": "A showcase of front-end web development techniques and interests",
   "main": "index.html",
@@ -19,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/supermanzer/supermanzer.github.io/issues"
   },
-  "homepage": "https://github.com/supermanzer/supermanzer.github.io"
+  "homepage": "https://github.com/supermanzer/supermanzer.github.io",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
+    "jshint": "^2.9.6"
+  }
 }

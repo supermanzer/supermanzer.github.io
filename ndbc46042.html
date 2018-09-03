@@ -7,8 +7,8 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="static/css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
     <!-- Make sure to mirror navbar code -->
@@ -21,6 +21,7 @@
          </ul>
 
            <ul id="nav-mobile" class="sidenav">
+               <li><a href="/">Home</a></li>
              <li><a href="/ndbc46042.html">NDBC Data Vis</a></li>
            </ul>
       </div>
@@ -31,12 +32,12 @@
             <div class="col sm12 m8">
                 <div class="section">
                     <h5 class="center">NDBC 46042 - Regional Montery Bay</h5>
-                    <p class="light">For much of the oceanographic research done on the Monterey Bay, the regional National Data Buoy Center (NDBC) Buoy 46042 has been used. Located 27 nautical miles west northwest (WNW) of the city of Monterey, this buoy measures the regional oceanic conditions near the mouth of the Monterey Bay.  My own research has relied upon it greatly and I hope to use my familiarity with this data as a fertile source for developing interactive data visualizations. </p>
+                    <p class="light">For much of the oceanographic research done on the Monterey Bay, the regional National Data Buoy Center (NDBC) Buoy 46042 has been used to characterize regional oceanographic conditions. Located 27 nautical miles west northwest (WNW) of the city of Monterey, this buoy measures the regional oceanic conditions near the mouth of the Monterey Bay.  My own research has relied upon it greatly and I hope to use my familiarity with this data as a fertile source for developing interactive data visualizations. </p>
                 </div>
             </div>
             <div class="col sm12 m4 ">
                 <div class="container ">
-                    <img src="images/46042.jpg" alt="">
+                    <img src="static/images/46042.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -47,8 +48,8 @@
             <div class="row">
                 <div class="col s12">
                     <ul class="tabs">
-                        <li class="tab col s4"><a id="wh_tab" href="#d_wind_hist">Flat Histogram</a></li>
-                        <li class="tab col s4"> <a id="rh_tab" href="#d_rad_hist">Radial Histogram</a> </li>
+                        <li class="tab col s4"><a id="wh_tab" href="#d_wind_hist" class="indigo-text text-darken-4">Flat Histogram</a></li>
+                        <li class="tab col s4"> <a id="rh_tab" href="#d_rad_hist" class="indigo-text text-darken-4">Radial Histogram</a> </li>
                     </ul>
                 </div>
                 <div id="d_wind_hist" class="col s12">
@@ -64,13 +65,13 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
+    <script src="static/js/materialize.js"></script>
+    <script src="static/js/main.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="js/d3-scale-chromatic.js"></script>
-    <script src="js/NDBC.js"></script>
+    <script src="static/js/d3-scale-chromatic.js"></script>
+    <script src="static/js/NDBC.js"></script>
     <script type="text/javascript">
-
+    $('.tabs').tabs();
     plotStdMet();
     window.onresize = function () {
         // clear the svg element

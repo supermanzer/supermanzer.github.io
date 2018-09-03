@@ -1,178 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Supermanzer Showcase</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ryan's Portfolio</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="static/css/main.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-     <a id="logo-container" href="https://supermanzer.github.io" class="brand-logo black-text right">Home</a>
-     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-     <ul class="left hide-on-med-and-down">
-        <li><a href="/ndbc46042.html">NDBC Data Vis</a></li>
-    </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="/ndbc46042.html">NDBC Data Vis</a></li>
-      </ul>
-
-    </div>
-  </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-darken-2">Supermanzer Showcase</h1>
-        <div class="row center">
-          <h5 class="header col s12 light black-text ">A simple platform for me (<a href="https://www.github.com/supermanzer">Ryan Manzer</a>) to test out different concepts related to data processing, data visualization, and web development.</h5>
+    <header id="head">
+        <div class="dark-mask navbar-fixed">
+            <!-- NAV BAR -->
+            <nav class="nav-wrapper">
+                <a href="#head" class="brand-logo">Home</a>
+                <a href="" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="#about">About Me</a>
+                    </li>
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#interests">Interests</a>
+                    </li>
+                    <li>
+                        <a href="#tech">Tech Stack</a>
+                    </li>
+                </ul>
+                <ul class="sidenav grey lighten-4" id="mobile-menu">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#interests">Interests</a></li>
+                    <li><a href="#tech">Tech Stack</a></li>
+                </ul>
+            </nav>
+            <div class="title valign-wrapper center-align white-text">
+                <div class="row">
+                    <div class="col s12">
+                    <h1>C. Ryan Manzer</h1>
+                    </div>
+                    <div class="col s12">
+                        <p class="flow-text">Fullstack Developer, Oceanographer,  and Data Scientist</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row center">
-         <a href="https://github.com/supermanzer/supermanzer.github.io" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Go To Repository</a>
+    </header>
+    <main>
+        <!-- About Section -->
+        <section id="about" class="container section scrollspy">
+            <div class="row">
+                <div class="col s12 l5">
+                    <h2 class="indigo-text text-darken-4">About Me</h2>
+                    <p>
+                        I am a self-taught software developer.  My professional background has been primarily in developing customized business administration software and reporting tools.  I have a passion for building intuitive software that facilitates simplifies complex business practices and allows users to understand their data.
+                    </p>
+                    <p>
+                        I have a B.Sc. in Marine Biology and an M.Sc. in Physical Oceanography.  Through my academic work I have experience automating custom data ETL operations, statistical analyses, and data visualizations.
+                    </p>
+                    <p>More specific aspects of my work are broken out by section</p>
+                </div>
+                <div class="col s12 l6 offset-l1">
+                    <ul class="tabs">
+                        <li class="tab col s6"><a href="#research" class="indigo-text text-darken-4">Research</a></li>
+                        <li class="tab col s6"><a href="#business" class="indigo-text text-darken-4">Business Software</a></li>
+                    </ul>
+                    <div class="col s12" id="research">
+                        <p class="flow-text indigo-text text-darken-4">Research</p>
+                        <p>My academic research was looking into the physical forces that controlled the supply of phytoplankton to the coastal environment.  This work invovled data sets in various formats, from various sources, with differing time scales.  This work focused on time series analyses.  I performed much of this using the Matlab language and IDE, however I am continuing to work on transferring elements of my code base over to Python.</p>
+                        <p>I think the process of attaining my M.Sc. provided me with more than just the rigor needed to develop quality analyses and logical code.  It also gave me experience in relating complex concepts to people outside my discipline in ways that are readily understood.  This facility has served me well when communicating with the end users of my software.</p>
+                    </div>
+                    <div class="col s12" id="business">
+                        <p class="flow-text indigo-text text-darken-4">Business Software</p>
+                        <p>I began teaching myself software development after seeing coworkers struggle with maintaining large amounts of related data across multiple spreadsheets.  I began building data systems and business logic automation in Microsoft Access.  Over time I realized the most rapidly developing and improving platforms were in web-based data systems.  I dove into the Python framework Django and have never looked back.  More details regarding the specific technologies I enjoy utilizing can be found in the Tech Stack section.</p>
+                        <p>I delight in buiding systems that  authomate business logic, while providing a simplified and intuitive user experience.  </p>
+                    </div>
+
+            </div>
+
+            </div>
+        </section>
+        <!-- project parallax -->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="/static/images/ocean_sunset.jpg" alt="I like coding" class="responsive-img">
+            </div>
         </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="images/beach_sunset.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">device_hub</i></h2>
-            <h5 class="center">Data Processing</h5>
-
-            <p class="light">In both my work building business administration applications and my academic studies in oceanography, figuring out efficient and clever ways to find, extract, and process data has been a critical component.  I even find such activities enjoyable.  Here I will mostly be focusing on how I can turn a simple static page into a Javascript powered data visualization platform.</p>
-          </div>
+        <!-- Projects Section -->
+        <section id="projects" class="container section scrollspy">
+            <h2 class="indigo-text text-darken-4">My Projects</h2>
+            <p>Since most of the work I've done professionally involve internal tools for businesses, I generally can not share any of those projects.  Here I am sharing my personal projects.  They represent the broad scope of my interests.  While many are not fully fleshed out, they give a decent impression of my design approaches and the aspects of software development I find interesting.</p>
+            <ul class="collection with-header collapsible">
+                <li class="collection-header ">
+                    <h4>Projects</h4>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="static/images/46042.jpg" alt="" class="circle">
+                        <span class="title">NDBC Data Processing <!-- - <a href="/ndbc46042.html">Example Site</a></span> -->
+                        <p class='grey-text'>Python class(es) for oceanographic data processing</p>
+                        <a href="https://github.com/GenSci/NDBC" class="secondary-content btn btn-small gd-lightblue">Repo</a>
+                    </li>
+                <li class="collection-item avatar">
+                    <i class="fab fa-python circle grey lighten-3 indigo-text"></i>
+                    <span class="title">MDN Django Tutorial</span>
+                    <p class="grey-text">I use the Mozilla Developer Network Django tutorial as  a simple project in which to test out ideas.</p>
+                    <a href="https://github.com/supermanzer/MDN_Tutorial" class="secondary-content btn btn-small gd-lightred">Repo</a>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="fab fa-react circle grey lighten-3 blue-text"></i>
+                        <span class="title">DRF - React - Docker</span>
+                        <p class="grey-text">An extremely simple example  an application with mutliple containers for creating a <br> REST API with Django REST Framework and an app that consumes it with React.</p>
+                        <a href="https://github.com/supermanzer/DjangoReactTodo" class="secondary-content btn btn-small gd-teal">Repo</a>
+                </li>
+                <li class="collection-item avatar"><i class="fas fa-infinity fa-lg circle purple lighten-3"></i>
+                        <span class="title">Coursera ML Course</span>
+                        <p class="grey-text">A repository to save the Octave code and assignment PDFs the ML course <br> taught by Andrew Ng on Coursera</p>
+                        <a href="https://github.com/supermanzer/CourseraML" class="secondary-content btn btn-small gd-purple ">Repo</a>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="fab fa-python circle blue lighten-2"></i>
+                    <span class="title">TODO Cataloging CLA</span>
+                    <p class="grey-text">A command line application that collects a list of all TODO comments <br> in a project directory and writes them to a file.</p>
+                    <a href="https://github.com/supermanzer/todo-cla" class="secondary-content btn btn-small gd-aqua">Repo</a>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="fas fa-code circle light-blue accent-2"></i>
+                        <span class="title">This Site</span>
+                        <p class="grey-text">The development of this site is an example of my front-end development approaches.
+                        <a href="https://github.com/supermanzer/supermanzer.github.io" class="secondary-content btn btn-small gd-warmorange ">Repo</a>
+                </li>
+            </ul>
+        </section>
+        <!-- Interests parallax -->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="static/images/cypress_ocean.jpg" alt="" class="responsive-img">
+            </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">equalizer</i></h2>
-            <h5 class="center">Data Visualization</h5>
-
-            <p class="light">Much of the work I did for my MS invovled visualizing oceanographic data using <a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab">Matlab</a>. While it's an extremely useful platform, I want to expand the reach of my data visualizations and not be tethered to a license.  Thus I am turning to Javascript and the D3 plotting library to develop interactive plots of oceanographic data.  This is an ongoing pursuit and the graphs I display here will be regularly updated.</p>
-          </div>
+        <!-- Interests Section -->
+        <section id="interests" class="container section scrollspy">
+            <h2 class="indigo-text text-darken-4">My Interests</h2>
+            <p>Much of my education has focused on oceanography and marine science while a good amount of my work has revolved around web application development.  While both of these interests are evident in the projects I undertake, there are many diverse topics I am interested in.</p>
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="fas fa-desktop"></i> Machine Learning</div>
+                    <div class="collapsible-body">
+                        <p>
+                        While I employed traditional statistical methods in my past research, I am excited by the prospects for Machine Learning (ML).  Having completed the introductory Coursera course on Machine Learning, I am familiar with the basic building blocks of many of the most common algorithms.    I am excited to see where I can combine ML into other aspects of my work.
+                    </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">developer_mode</i> Process Modeling</div>
+                    <div class="collapsible-body">
+                        <p>
+                            I didn't expect to enjoy this as much as I do.  I have found that gaining an understanding of some process (e.g. business administration, manufacturing, etc. ) and the specific aspects unique to a given situation then translating that into software is a very fun and mentally engaging activity.  In most cases I have been able to abstract some of the tedious elements from these processes, identify more efficient approaches, and implement solutions that have dramatically increased productivity.
+                        </p>
+                        <p>While it may seem rather dry, I find I enjoy making others lives and work easier and less tedious.  </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">insert_chart</i> Data Visualiation</div>
+                    <div class="collapsible-body">
+                        <p>
+                            While I delight in data collection and analysis, it can be difficult to digest without some form of visualization.  Furthermore, I think a well designed visualization has the power to intuitively communicate the meaning of the data presented.   The importance of good data visualization can be seen in the proliferation of tools like Tableau throughout the business world.
+                        </p>
+                        <p>
+                            I enjoy using pre-built tools such as Tableau but I also enjoy "rolling my own" custom data visualizations.
+                        <!--
+                            For my simplified look at some regional oceanographic data for the Central California Coast using the D3 javascript library, check <a href="line.html">here.</a> -->
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- code parallax -->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="/static/images/code.jpg" alt="I like coding" class="responsive-img">
+            </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">code</i></h2>
-            <h5 class="center">Web Development</h5>
-
-            <p class="light">I think the web is a great vehicle for communicating science that has yet to be fully realized.  I would like to explore general web development to better understand how I can use structure, style, and interactive components to communicate and engage others.  However I am still quite a novice and will be relying on many more talented developers to aid me in my quest.  I have to thank all the many contributors at <a href="http://materializecss.com/">MaterializeCSS</a> for this lovely template and many spiffy components.</p>
-          </div>
+        <!-- Tech Stack Section -->
+        <section id="tech" class="container section scrollspy">
+        <h2 class="indigo-text text-darken-4">My Tech Stack</h2>
+            <p>I have found open source technologies to be incredibly powerful and, thanks to the great communties backing them, very easy to learn.  I enjoy all the solutions these technologies allow me to develop.  My currently employed tech stack is as follows:</p>
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">Docker</div>
+                    <div class="collapsible-body">
+                        <p>Getting comfortable with <a href="https://docs.docker.com/">Docker</a> containers and docker-compose has been a game changer in my application development.  It allows me to deploy software will all necessary dependencies and in controlled OS environments.  I know it's nothing new at this point but getting to know Docker has allowed me to explore other technologies, since I can simply spin up a new container rather than having to figure out how to nagivate conflicting libraries and port collisions when installing software on a server.</p>
+                        </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">PostgreSQL</div>
+                    <div class="collapsible-body">
+                        <p>
+                        <a href="https://www.postgresql.org/">PostgreSQL</a> is by far my database of choice these days.  To me the JSON binary field types promise all the flexibility of a NoSQL DB system while the traditional RDBMS allows me to easily join various data sets to meet my use cases.  Also, the community abounds with tutorials and walk throughs to help me determine how to acheive my goals.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Python</div>
+                    <div class="collapsible-body">
+                        <p>
+                            <a href="https://www.python.org/">Python</a> is such a mutli-faceted general programming language that I have yet to run into a problem that I couldn't solve with it.  Perhaps even more so than any other software I use, the Python community is overlowing with more tools, tips, and tricks than I could ever keep up with.  Working in a technology with so much innovation and participation is exciting.  Additionally I find Python code a pleasure to read and write.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Django</div>
+                    <div class="collapsible-body">
+                        <p>
+                            As a web framework written in Python, I was already well disposed to like <a href="https://www.djangoproject.com/">Django</a>.  While it may be a bit more overhead than a simple service like Flask, it manages to abstract much of the tediousness out of building websites.  It achieves this without resorting to any special "under-the-hood" approach which means that if you ever need to modify the default behaviours, the underlying code is easily intelligeble and simple to change or extend.  Once again, the community around this project is vast and willing to share all manner of sneaky approaches to solving problems.
+                        </p>
+                        <p>In addition to the Django Framework, many other projects have sprung up to extend the capabilities of Django that make developing other resources ridiculously easy.  <a href="http://www.django-rest-framework.org/">Django Rest Framework</a> is a good example of this and allows an easy way to layer a REST API onto an existing Django project or spin a new one up from scratch.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Celery</div>
+                    <div class="collapsible-body">
+                        <p>
+                                I'm still wrapping my head around <a href="http://www.celeryproject.org/">Celery</a> and it's uses.  However, anyone that has had to wait for more than a second for some process to complete before a website loads will appreciate asynchronous task queues.  I've only implemented Celery to handle fairly simple but nonetheless time consuming tasks but it has resulted in a more pleasant user experience.  I am excited to spend some more time digging into what I can do with this tool.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">D3</div>
+                    <div class="collapsible-body">
+                        <p>
+                            As someone who enjoys the graphical representation of data, <a href="https://d3js.org/">D3</a> is something I would love to spend more time working with.  I will admit most of what I've done with it could have been accomplished faster with other tools.  However, I see  great promise in what I could do with this technology and I am determined to get a btter handle on it.
+                         </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Git</div>
+                    <div class="collapsible-body">
+                        <p>
+                            As if developing the Linux kernel wasn't enough, Linus Torvalds bestowed upon us <a href="https://git-scm.com/">Git</a>.  Possibly the most elegant, and frustrating, version control systems.  I use it every day and it is a core part of my work.  However, I am certain I could be doing better with it.  As with the rest of my tech stack, I take delight in the fact that there is so much more I can learn to facilitate better process development.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="page-footer blue darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h5>Connect</h5>
+                    
+                    <div class="row">
+                        <div class="col s4">
+                            <a class="white-text"  href="https://www.linkedin.com/in/ryan-manzer-8a257129/"> <i class="fab fa-linkedin"></i> LinkedIn</a>
+                        </div>
+                        <div class="col s4">
+                            <a class="white-text"  href="https://github.com/supermanzer/"> <i class="fab fa-github"></i> Github</a>
+                        </div>
+                        <div class="col s4">
+                            <a class="white-text" href="https://twitter.com/supermanzer"><i class="fab fa-twitter"></i> Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light black-text">My focus is on the ocean...in case you haven't noticed yet.</h5>
+        <div class="footer-copyright blue darken-4">
+            <div class="container center-align">
+                &copy; 2018 - C. Ryan Manzer
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="images/ocean_sunset.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-  <div class="container">
-      <div class="section">
-          <div class="row">
-              <div class="col s12 center">
-                  <h4>Project Repositories</h4>
-                  <p class="left-align light">The things I will showcase here link back to individual project repositories.  If you don't see any project titles in the navbar, check the sidenav.  Here are descriptions of these repositories:</p>
-                  <ul>
-                      <li>NDBC: Python class(es) pertaining to gathering data from NDBC data stations. <a href="https://github.com/supermanzer/NDBC" class="btn btn-small waves-effect waves-light">Go to Repo</a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light ">I live in Monterey, so this seemed appropriate</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="images/cypress_ocean.jpg" alt="Unsplashed background img 3"></div>
-  </div>
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contribute</h4>
-          <p class="left-align light">As I'm a novice at much of this work I would be happily invite any interested parties to contribute. I will be attempting to build out data parsing Javascript components as well as interactive plots of data.  In some cases I may have to rely on server side code (Python 3) to handle data wrangling and write out to a static file.  In those cases I will host both the static data file and the Python script in this repository for anyone to examine, fork, or comment on.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-
-
-  <footer class="page-footer teal">
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-  </div> -->
-    <div class="footer-copyright">
-      <div class="container">
-      Made by Ryan Manzer with significant help from <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-  </body>
+    </footer>
+    <!--  Scripts-->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+    <script src="static/js/materialize.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
 </html>
