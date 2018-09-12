@@ -115,3 +115,20 @@ classes
 
 .mr-5 {
   margin: 5rem; }
+
+/* Padding */
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem; }
+
+.px-2 {
+  padding-left: 2rem;
+  padding-right: 2rem; }
+
+.px-3 {
+  padding-left: 3rem;
+  padding-right: 3rem; }
+
+.px-4 {
+  padding-left: 4rem;
+  padding-right: 4rem; }
