@@ -132,3 +132,11 @@ classes
 .px-4 {
   padding-left: 4rem;
   padding-right: 4rem; }
+
+/*
+fonts.scss
+-------------------------------------------------------
+A set of rules defining which fonts are used where
+*/
+body {
+  font-family: Lato; }
