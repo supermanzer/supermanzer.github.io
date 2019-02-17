@@ -138,5 +138,5 @@ fonts.scss
 -------------------------------------------------------
 A set of rules defining which fonts are used where
 */
-body {
-  font-family: Lato; }
+html {
+  font-family: Lato sans-serif; }
