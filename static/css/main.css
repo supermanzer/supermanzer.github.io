@@ -56,7 +56,7 @@ https://webkul.github.io/coolhue/
   background-image: linear-gradient(135deg, #3B2667 10%, #BC78EC 100%); }
 
 header#head {
-  background: url("/static/images/rocky_coast2.jpg");
+  background: url("../images/rocky_coast2.jpg");
   background-size: cover;
   background-position: center;
   min-height: 900px; }
