@@ -7,11 +7,13 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "export": "nuxt export",
+    "generate": "nuxt generate",
     "serve": "nuxt serve",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.12.1",
     "marked": "^1.1.1",
     "nuxt": "^2.13.0"
   },

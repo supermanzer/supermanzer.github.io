@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <span id="bg"></span>
     <AppBar />
     <v-main class="grey lighten-2 fh">
       <nuxt />

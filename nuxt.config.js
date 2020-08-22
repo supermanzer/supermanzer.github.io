@@ -18,12 +18,13 @@ export default {
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
-    meta: [{
-        charset: 'utf-8'
+    meta: [
+      {
+        charset: 'utf-8',
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        content: 'width=device-width, initial-scale=1',
       },
       {
         hid: 'description',
@@ -31,15 +32,17 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{
+    link: [
+      {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico'
+        href: '/favicon.ico',
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap'
-      }
+        href:
+          'https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap',
+      },
     ],
   },
   /*
@@ -64,6 +67,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    '@nuxtjs/axios',
     '@nuxtjs/vuetify',
   ],
   /*
@@ -77,7 +81,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
-      font: false
+      font: false,
     },
     treeShake: true,
     theme: {

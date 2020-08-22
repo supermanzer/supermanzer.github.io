@@ -9,7 +9,7 @@
     >
       <v-btn text color="primary" @click.native="snackbar = false">Close</v-btn>
     </v-snackbar>
-    <v-app-bar app dark color="rgba(50,50,50,0.5">
+    <v-app-bar app dark color="rgba(50,50,50,0.75">
       <v-app-bar-nav-icon
         class="grey--text text--lighten-2"
         @click="drawer = !drawer"
