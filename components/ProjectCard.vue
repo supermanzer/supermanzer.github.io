@@ -23,6 +23,11 @@
 
 <script>
 export default {
+  transition: {
+    name: 'to-detail',
+    mode: 'out-in',
+    duration: 500,
+  },
   props: {
     project: { type: Object, required: true },
   },
