@@ -13,11 +13,11 @@
 
 <script>
 export default {
-  layout: 'home',
+  // layout: 'home',
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .bg-black {
   background: rgba(
     0.2,
@@ -28,16 +28,16 @@ export default {
 }
 .fh {
   height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url('https://w.wallhaven.cc/full/vm/wallhaven-vmoj95.jpg');
+  background-position: center;
+  background-size: cover;
 }
 .twothirds {
   height: 66.7%;
 }
 #bg {
   height: 100%;
-  width: 100%;
-  position: absolute;
-  background-image: url('https://w.wallhaven.cc/full/vm/wallhaven-vmoj95.jpg');
-  background-position: center;
-  background-size: cover;
 }
 </style>

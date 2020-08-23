@@ -7,7 +7,14 @@
       <h3 class="subheading mx-5 mb-4">I like making stuff</h3>
       <v-divider class="mb-8" :inset="false"></v-divider>
       <v-row align="center" justify="center">
-        <v-col v-for="(project, index) in projects" :key="index" cols="3">
+        <v-col
+          v-for="(project, index) in projects"
+          :key="index"
+          :cols="12"
+          :sm="12"
+          :md="6"
+          :lg="4"
+        >
           <ProjectCard :project="project" />
         </v-col>
       </v-row>
@@ -26,11 +33,7 @@ export default {
       return this.$store.state.projects.all
     },
   },
-  mtehods: {
-    fetchDescription(project) {
-      this.$axios.get()
-    },
-  },
+  methods: {},
 }
 </script>
 

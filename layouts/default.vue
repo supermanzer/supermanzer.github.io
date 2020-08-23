@@ -1,10 +1,11 @@
 <template>
   <v-app>
+    <NavDrawer />
     <AppBar />
     <v-main class="grey lighten-2 fh">
       <nuxt />
     </v-main>
-    <v-footer :absolute="!fixed">
+    <v-footer :absolute="true">
       <v-row justify="center" align="center">
         <span>&copy; 2020 C. Ryan Manzer</span>
       </v-row>
@@ -14,21 +15,11 @@
 
 <script>
 import AppBar from '@/components/AppBar'
-// import NavDrawer from '@/components/NavDrawer.vue'
+import NavDrawer from '@/components/NavDrawer.vue'
 export default {
   components: {
-    // NavDrawer,
+    NavDrawer,
     AppBar,
-  },
-  data() {
-    return {
-      ...this.$store.state.nav.settings,
-    }
-  },
-  methods: {
-    setDrawer() {
-      this.$store.commit('nav/toggleDrawer')
-    },
   },
 }
 </script>

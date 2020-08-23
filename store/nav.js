@@ -2,7 +2,7 @@
 
 export const state = () => ({
   settings: {
-    drawer: true,
+    drawer: false,
     clipped: true,
     fixed: false,
     right: true,
@@ -10,6 +10,23 @@ export const state = () => ({
     title: 'Supermanzer',
     miniVariant: false,
   },
+  links: [
+    {
+      icon: 'mdi-home',
+      title: 'Home',
+      to: '/',
+    },
+    {
+      icon: 'mdi-code-tags',
+      title: 'Projects',
+      to: '/projects',
+    },
+    {
+      icon: 'mdi-account',
+      title: 'About',
+      to: '/about',
+    },
+  ],
 })
 
 export const mutations = {
