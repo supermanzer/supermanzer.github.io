@@ -30,7 +30,7 @@ export default {
   height: 100%;
   width: 100%;
   position: absolute;
-  background-image: url('https://w.wallhaven.cc/full/vm/wallhaven-vmoj95.jpg');
+  background-image: url('https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   background-position: center;
   background-size: cover;
 }
