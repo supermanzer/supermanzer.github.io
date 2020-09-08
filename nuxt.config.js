@@ -67,6 +67,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/vuetify',
   ],
+
+  axios: {
+    baseURL: 'http://98.248.196.186:8123/'
+  },
   /*
    ** Changing name of buil directory
    ** https: //nuxtjs.org/api/configuration-builddir/

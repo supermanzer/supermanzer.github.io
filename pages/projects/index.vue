@@ -24,7 +24,14 @@ export default {
       return this.$store.state.projects.all
     },
   },
-  methods: {},
+  created() {
+    this.loadProjects()
+  },
+  methods: {
+    loadProjects() {
+      this.$store.dispatch('projects/loadProjects')
+    },
+  },
 }
 </script>
 

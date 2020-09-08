@@ -1,22 +1,45 @@
 <template>
-  <v-card :dark="false" :elevation="3">
-    <v-card-title class="text-uppercase">{{ project.title }}</v-card-title>
-    <v-card-text class="test">{{ project.summary }}</v-card-text>
+  <v-card :dark="false" :elevation="3" :height="300" :width="500" class="">
+    <v-card-title class="text-uppercase d-flex justify-left">{{
+      project.title
+    }}</v-card-title>
     <v-divider></v-divider>
-    <v-card-actions>
-      <v-btn
-        v-if="project.github_url"
-        icon
-        color="indigo accent-2"
-        :href="project.github_url"
-        botton
-      >
-        <v-icon large>mdi-github</v-icon>
-      </v-btn>
+    <v-card-text class="test d-flex justify-center">{{
+      project.summary
+    }}</v-card-text>
+    <v-card-actions class="bottom-actions">
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            v-if="project.github_url"
+            icon
+            color="indigo accent-2"
+            :href="project.github_url"
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon large>mdi-github</v-icon>
+          </v-btn>
+        </template>
+        <span>View on GitHub</span>
+      </v-tooltip>
+
       <v-spacer></v-spacer>
-      <v-btn text color="deep-purple accent-4" :bottom="true" :to="projectUrl"
-        >Details</v-btn
-      >
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            text
+            color="deep-purple accent-4"
+            :bottom="true"
+            :to="projectUrl"
+            v-bind="attrs"
+            v-on="on"
+          >
+            Details
+          </v-btn>
+        </template>
+        <span>View Details</span>
+      </v-tooltip>
     </v-card-actions>
   </v-card>
 </template>
@@ -40,4 +63,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.bottom-actions {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+</style>
