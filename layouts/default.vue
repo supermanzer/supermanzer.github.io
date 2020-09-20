@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <NavDrawer />
-    <AppBar />
+    <NavBarDrawer />
     <v-main class="grey lighten-2 fh">
       <nuxt />
     </v-main>
@@ -14,12 +13,11 @@
 </template>
 
 <script>
-import AppBar from '@/components/AppBar'
-import NavDrawer from '@/components/NavDrawer.vue'
+import NavBarDrawer from '@/components/NavBarDrawer'
 export default {
+  name: 'DefaultLayout',
   components: {
-    NavDrawer,
-    AppBar,
+    NavBarDrawer,
   },
 }
 </script>

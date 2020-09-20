@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="navState.drawer"
+    v-model="drawer"
     :clipped="navState.clipped"
     app
     dark
@@ -43,12 +43,24 @@
 
 <script>
 export default {
+  name: 'NavigationDrawer',
+  data() {
+    return {
+      drawer: false,
+      clipped: false,
+    }
+  },
   computed: {
     navLinks() {
       return this.$store.state.nav.links
     },
     navState() {
       return this.$store.state.nav.settings
+    },
+  },
+  watch: {
+    drawer: (val) => {
+      this.$store.dispatch('nav/toggleDrawer')
     },
   },
 }

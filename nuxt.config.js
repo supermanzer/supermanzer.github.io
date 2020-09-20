@@ -51,7 +51,7 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    // '@/plugins/vuetify',
+    '~plugins/filters.js'
   ],
   /*
    ** Auto import components
@@ -69,7 +69,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'http://98.248.196.186:8123/'
+    baseURL: process.env.BASE_URL || 'http://98.248.196.186:8123/'
   },
   /*
    ** Changing name of buil directory

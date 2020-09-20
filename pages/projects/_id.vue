@@ -20,12 +20,14 @@
       </v-img>
 
       <v-card-text class="mt-4">
-        <p
-          v-for="(desc, i) in project.sections"
-          :key="i"
-          :class="desc.class"
-          v-html="renderText(desc.text)"
-        ></p>
+        <div v-for="sec in project.sections" :key="sec.id" class="mb-10">
+          <p
+            v-if="sec.heading"
+            class="text-h3 gd-grey my-4"
+            v-text="sec.heading"
+          ></p>
+          <p v-html="renderText(sec.text)"></p>
+        </div>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -67,4 +69,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.gd-grey {
+  background-image: linear-gradient(to left, #cfd9df 0%, #e2ebf0 100%);
+}
+</style>
