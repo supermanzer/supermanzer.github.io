@@ -5,7 +5,7 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'spa',
+  ssr: false,
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -66,6 +66,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/axios',
     '@nuxtjs/vuetify',
+    '@nuxtjs/firebase',
   ],
 
   axios: {
@@ -84,6 +85,25 @@ export default {
    ** Nuxt.js modules
    */
   modules: [],
+  /*
+   ** Nuxt Firebase integration configuration
+   ** https: //firebase.nuxtjs.org/guide/getting-started/
+   */
+  firebase: {
+    config: {
+      apiKey: "AIzaSyBwU59KPNzEYnIgn_1pmKbBB3mP6-wXMHU",
+      authDomain: "supermanzer.firebaseapp.com",
+      databaseURL: "https://supermanzer.firebaseio.com",
+      projectId: "supermanzer",
+      storageBucket: "supermanzer.appspot.com",
+      messagingSenderId: "321780011456",
+      appId: "1:321780011456:web:93b6d328f1eda9c5373825",
+      measurementId: "G-XWSPQV1JL1"
+    },
+    services: {
+      firestore: true
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

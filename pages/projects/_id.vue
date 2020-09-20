@@ -2,10 +2,10 @@
   <v-container grid-list-lg>
     <v-card class="mx-auto" outlined max-width="1000">
       <v-img
-        v-if="project.image_url"
+        v-if="project.image"
         class="white--text align-end"
         height="400"
-        :src="project.image_url"
+        :src="project.image"
         gradient="to right, rgba(50,50,50, 0.7), rgba(50,50,50,0.1)"
       >
         <v-list-item two-line>
@@ -20,7 +20,7 @@
       </v-img>
 
       <v-card-text class="mt-4">
-        <div v-for="sec in project.sections" :key="sec.id" class="mb-10">
+        <div v-for="sec in project.description" :key="sec.id" class="mb-10">
           <p
             v-if="sec.heading"
             class="text-h3 gd-grey my-4"

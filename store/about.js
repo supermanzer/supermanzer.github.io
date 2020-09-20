@@ -8,19 +8,23 @@ const state = () => ({
 
 const mutations = {
   SET_SECTIONS(state, payload) {
-    state.page.sections = payload.data
+    payload.forEach((doc) => {
+      if (state.page.sections.find((sec) => sec.id === doc.id) === undefined) {
+        const section = doc.data()
+        section.id = doc.id
+        state.page.sections.push(section)
+      }
+    })
   },
 }
 
 const actions = {
   getAboutSections({ commit }) {
-    this.$axios
-      .get('/about/')
-      .then((result) => {
-        commit('SET_SECTIONS', result)
-      })
-      .catch((err) => {
-        throw err
+    this.$fireStore
+      .collection('about')
+      .get()
+      .then((resp) => {
+        commit('SET_SECTIONS', resp.docs)
       })
   },
 }

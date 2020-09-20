@@ -36,30 +36,38 @@ const state = () => ({
     //    get/send/display data via asynchoronous requests.  I used the native Fetch API and incorporated global event
     //    listening to allow to link these actions to html elements via class names and use of the data- DOMString object.`,
     // },
-  ]
+  ],
 })
 
 const mutations = {
   SET_PROJECTS(state, payload) {
-    state.all = payload.data
+    payload.forEach((doc) => {
+      if (state.all.find((obj) => obj.id === doc.id) === undefined) {
+        const project = doc.data()
+        project.id = doc.id
+        state.all.push(project)
+      }
+    })
   },
 }
 
 const actions = {
   loadProjects({ commit }) {
-    this.$axios
-      .get('/projects/')
+    this.$fireStore
+      .collection('projects')
+      .get()
       .then((result) => {
-        commit('SET_PROJECTS', result)
+        commit('SET_PROJECTS', result.docs)
       })
       .catch((err) => {
-        throw err
+        // eslint-disable-next-line
+        console.error(err)
       })
   },
 }
 const getters = {
   getProject: (state) => (id) => {
-    return state.all.find((project) => project.id === parseInt(id))
+    return state.all.find((project) => project.id === id)
   },
 }
 
