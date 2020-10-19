@@ -14,25 +14,25 @@
 </template>
 
 <script>
-import ProjectCard from '@/components/ProjectCard'
+import ProjectCard from "@/components/projects/ProjectCard";
 export default {
   components: {
     ProjectCard,
   },
   computed: {
     projects() {
-      return this.$store.state.projects.all
+      return this.$store.state.projects.all;
     },
   },
   created() {
-    this.loadProjects()
+    this.loadProjects();
   },
   methods: {
     loadProjects() {
-      this.$store.dispatch('projects/loadProjects')
+      this.$store.dispatch("projects/loadProjects");
     },
   },
-}
+};
 </script>
 
 <style></style>

@@ -51,7 +51,8 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~plugins/filters.js'
+    '~/plugins/filters.js',
+    '~/plugins/notifier.js',
   ],
   /*
    ** Auto import components
@@ -63,7 +64,7 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     '@nuxtjs/axios',
     '@nuxtjs/vuetify',
     '@nuxtjs/firebase',
@@ -101,6 +102,13 @@ export default {
       measurementId: "G-XWSPQV1JL1"
     },
     services: {
+      auth: {
+        persistence: 'local',
+        initialize: {
+          onAuthStateChangedMutation: 'auth/ON_AUTH_STATE_CHANGED_MUTATION',
+          onAuthStateChangedAction: 'auth/onAuthStateChangedAction',
+        }
+      },
       firestore: true
     }
   },

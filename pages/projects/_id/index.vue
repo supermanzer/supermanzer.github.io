@@ -30,6 +30,10 @@
         </div>
       </v-card-text>
       <v-card-actions>
+        <v-btn color="deep-purple accent-4" v-if="loggedIn" text :to="editURL">
+          <v-icon>mdi-pencil</v-icon>
+          edit
+        </v-btn>
         <v-spacer></v-spacer>
         <v-btn
           v-if="project.github_url"
@@ -46,27 +50,35 @@
 </template>
 
 <script>
-import marked from 'marked'
+import marked from "marked";
 
 export default {
   data() {
     return {
       project: {},
-    }
+    };
   },
   created() {
-    this.setProject()
+    this.setProject();
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.loggedIn;
+    },
+    editURL() {
+      return `${this.project.id}/edit`;
+    },
   },
   methods: {
     renderText(text) {
-      return marked(text)
+      return marked(text);
     },
     setProject() {
-      const id = this.$route.params.id
-      this.project = this.$store.getters['projects/getProject'](id)
+      const id = this.$route.params.id;
+      this.project = this.$store.getters["projects/getProject"](id);
     },
   },
-}
+};
 </script>
 
 <style scoped>

@@ -6,15 +6,35 @@
         <h4 class="subheading mb-3 white--text">
           Full stack software engineer, data scientist, oceanographer
         </h4>
+        <!-- <v-form @submit.prevent="snackTime">
+          <v-text-field v-model="snackText" label="Snack Text"></v-text-field>
+          <v-btn color="info" @click="snackTime">Test Snack</v-btn>
+        </v-form> -->
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   // layout: 'home',
-}
+  data() {
+    return {
+      snackText: "",
+    };
+  },
+  methods: {
+    snackTime: function (snack) {
+      this.setSnack(this.snackText);
+      this.snackText = "";
+      this.$router.push("/");
+    },
+    ...mapMutations({
+      setSnack: "snackbar/SET_SNACKTEXT",
+    }),
+  },
+};
 </script>
 
 <style lang="css" scoped>
@@ -30,7 +50,7 @@ export default {
   height: 100%;
   width: 100%;
   position: absolute;
-  background-image: url('https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-image: url("https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-position: center;
   background-size: cover;
 }

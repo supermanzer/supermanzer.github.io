@@ -1,9 +1,14 @@
 const state = () => ({
   snackbar: false,
   snackText: '',
+  snackColor: '',
 })
 
 const mutations = {
+  SHOW_MESSAGE(state, payload) {
+    state.snackText = payload.text
+    state.snackColor = payload.color
+  },
   TOGGLE_SNACK(state) {
     state.snackbar = !state.snackbar
   },

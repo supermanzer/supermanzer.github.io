@@ -41,15 +41,6 @@
       </v-row>
     </v-navigation-drawer>
     <nav>
-      <v-snackbar
-        v-model="snackState.snackbar"
-        :timeout="4000"
-        top
-        color=""
-        v-text="snackState.snackText"
-      >
-        <v-btn text color="primary" @click.native="toggleSnack()">Close</v-btn>
-      </v-snackbar>
       <v-app-bar app dark color="rgba(50,50,50,0.75" :clipped-left="clipped">
         <v-app-bar-nav-icon
           class="grey--text text--lighten-2"
@@ -61,6 +52,7 @@
           v-text="title"
         >
         </v-toolbar-title>
+        <SnackBar />
         <v-spacer></v-spacer>
         <div class="hidden-md-and-down">
           <v-btn
@@ -78,8 +70,12 @@
 </template>
 
 <script>
+import SnackBar from "@/components/Nav/SnackBar";
 export default {
-  name: 'NavBarDrawer',
+  name: "NavBarDrawer",
+  components: {
+    SnackBar,
+  },
   data() {
     return {
       drawer: false,
@@ -87,24 +83,16 @@ export default {
       fixed: false,
       right: true,
       rightDrawer: false,
-      title: 'Supermanzer',
+      title: "Supermanzer",
       miniVariant: false,
-    }
+    };
   },
   computed: {
     navLinks() {
-      return this.$store.state.nav.links
-    },
-    snackState() {
-      return this.$store.state.snackbar
+      return this.$store.state.nav.links;
     },
   },
-  methods: {
-    toggleSnack() {
-      this.$store.dispatch('snackbar/toggleSnack')
-    },
-  },
-}
+};
 </script>
 
 <style></style>

@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import NavBarDrawer from '@/components/NavBarDrawer'
+import NavBarDrawer from "@/components/Nav/NavBarDrawer";
 export default {
-  name: 'DefaultLayout',
+  name: "DefaultLayout",
   components: {
     NavBarDrawer,
   },
-}
+};
 </script>
 
 <style></style>
