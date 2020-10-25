@@ -68,13 +68,13 @@
         <v-row>
           <v-col
             cols="12"
-            md="8"
-            offset-md="2"
+            md="10"
+            offset-md="1"
             v-for="(section, i) in project.description"
             :key="i"
             class=""
           >
-            <v-card>
+            <v-card class="px-6">
               <v-text-field
                 v-model="section.heading"
                 label="Section Heading"
@@ -88,7 +88,13 @@
               <v-card-actions>
                 <v-tooltip right>
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon color="grey" v-bind="attrs" v-on="on">
+                    <v-btn
+                      icon
+                      color="grey"
+                      v-bind="attrs"
+                      v-on="on"
+                      @click="removeSection(i)"
+                    >
                       <v-icon>mdi-delete-forever-outline</v-icon>
                     </v-btn>
                   </template>
@@ -104,7 +110,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "ProjectForm",
+  props: {
+    project: { type: Object, required: true },
+  },
+  methods: {
+    addSection: function () {
+      const newSection = {
+        heading: "",
+        text: "",
+      };
+      this.project.description.push(newSection);
+    },
+    postProject: function () {
+      this.$store.dispatch("projects/postProject", this.project).then(() => {
+        this.$router.push(`/projects/${this.project.id}`);
+      });
+    },
+    removeSection: function (index) {
+      this.project.description.splice(index, 1);
+    },
+  },
+};
 </script>
 
 <style>

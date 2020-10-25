@@ -16,8 +16,12 @@ const mutations = {
   updateProject(state, project) {
     const getIndex = (proj) => proj.id === project.id
     const index = state.all.findIndex(getIndex)
-    state.all.splice(index, 1, project)
-  }
+    if (index >= 0) {
+      state.all.splice(index, 1, project)  
+    } else {
+      state.all.push(project)
+    }
+  },
 }
 
 const actions = {
@@ -39,7 +43,6 @@ const actions = {
       const text = 'Project posted to Firestore'
       const color = 'success'
       commit('snackbar/SHOW_MESSAGE', { text, color }, {root: true})
-      this.loadProjects()
     }).catch((err) => {
       console.error(err)
       const text = `Post resulted in error: ${err.message}`

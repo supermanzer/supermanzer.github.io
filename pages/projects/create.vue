@@ -18,42 +18,24 @@
 <script>
 import ProjectForm from "@/components/projects/ProjectForm";
 export default {
-  name: "editPage",
-  components: {
-    ProjectForm,
-  },
+  name: "createProject",
   data() {
     return {
-      project: {},
+      project: {
+        id: "",
+        title: "",
+        github_url: "",
+        image: "",
+        summary: "",
+        description: [],
+      },
     };
   },
-  created() {
-    this.setProject();
-  },
   methods: {
-    setProject: function () {
-      const id = this.$route.params.id;
-      if (id !== undefined) {
-        // Deep close of project to Edit page/form to avoid direct changes
-        this.project = JSON.parse(
-          JSON.stringify(this.$store.getters["projects/getProject"](id))
-        );
-      }
-    },
-    addSection: function () {
-      const newSection = {
-        heading: "",
-        text: "",
-      };
-      this.project.description.push(newSection);
-    },
     postProject: function () {
       this.$store.dispatch("projects/postProject", this.project).then(() => {
         this.$router.push(`/projects/${this.project.id}`);
       });
-    },
-    removeSection: function (index) {
-      this.project.description.splice(index, 1);
     },
   },
 };
