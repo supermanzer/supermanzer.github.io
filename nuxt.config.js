@@ -41,6 +41,9 @@ export default {
         href: 'https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap',
       },
     ],
+    script: [
+      {src: "https://public.tableau.com/javascripts/api/tableau-2.6.0.min.js", async: true, defer: true}
+    ]
   },
   /*
    ** Global CSS

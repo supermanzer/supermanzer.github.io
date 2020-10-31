@@ -41,12 +41,12 @@ const actions = {
     commit('updateProject', project)
     this.$fireStore.collection('projects').doc(project.id).set(project).then(() => {
       const text = 'Project posted to Firestore'
-      const color = 'success'
+      const color = 'indigo'
       commit('snackbar/SHOW_MESSAGE', { text, color }, {root: true})
     }).catch((err) => {
       console.error(err)
       const text = `Post resulted in error: ${err.message}`
-      const color = 'error'
+      const color = 'red'
       commit('snackbar/SHOW_MESSAGE', { text, color }, {root: true})
     })
   }

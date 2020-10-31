@@ -16,6 +16,7 @@
 <script>
 import ProjectCard from "@/components/projects/ProjectCard";
 export default {
+  name: "ProjectCards",
   components: {
     ProjectCard,
   },

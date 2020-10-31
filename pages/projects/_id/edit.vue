@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-card class="mb-8">
+  <v-container class="mb-12">
+    <v-card class="mb-12">
       <v-card-title primary-title>
         Edit Project - {{ project.title }}</v-card-title
       >

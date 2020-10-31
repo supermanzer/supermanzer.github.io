@@ -26,6 +26,12 @@ export const state = () => ({
       title: 'About',
       to: '/about',
     },
+    {
+      icon: 'mdi-chart-areaspline',
+      title: 'Tableau',
+      to: '/tableau'
+
+    }
   ],
 })
 

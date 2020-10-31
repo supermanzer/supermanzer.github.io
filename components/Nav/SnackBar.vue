@@ -1,7 +1,7 @@
 <template>
-  <v-snackbar app top v-model="show" :color="color">
+  <v-snackbar app top v-model="show" v-bind:class="textClass">
     {{ message }}
-    <v-btn text color="accent" @click.native="show = false">Close</v-btn>
+    <v-btn text :color="color" @click.native="show = false">Close</v-btn>
   </v-snackbar>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       show: false,
-      color: "info",
+      color: "",
       message: "",
     };
   },
@@ -29,6 +29,15 @@ export default {
         }
       }
     );
+  },
+  computed: {
+    textClass() {
+      if (this.color.length > 0) {
+        return `${this.color}--text`;
+      } else {
+        return "";
+      }
+    },
   },
 };
 </script>

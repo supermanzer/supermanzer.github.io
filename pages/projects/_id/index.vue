@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-lg>
-    <v-card class="mx-auto" outlined max-width="1000">
+    <v-card class="mx-auto mb-12" outlined max-width="1200">
       <v-img
         v-if="project.image"
         class="white--text align-end"
@@ -53,6 +53,7 @@
 import marked from "marked";
 
 export default {
+  name: "ProjectDetail",
   data() {
     return {
       project: {},
