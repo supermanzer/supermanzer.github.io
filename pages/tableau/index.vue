@@ -3,12 +3,12 @@
     <p>
       I have played around with a few different data visualization technologies
       and I've found Tableau to be a very approachable and useful platform. I
-      enjoy the *very* large community and the way they support each other. I
-      also enjoy the ease of building visualizations which shifts the effort to
-      determining the most effective data visualization techniques rather than
-      just trying to get the damn graphs to work. While most of my work in
-      Tableau has been for work and consequently restricted, I've been making an
-      effort to put more stuff up on
+      enjoy the <b>very</b> large community and the way they support each other.
+      I also enjoy the ease of building visualizations which shifts the effort
+      to determining the most effective data visualization techniques rather
+      than just trying to get the damn graphs to work. While most of my efforts
+      in Tableau has been for work and consequently restricted, I've been making
+      an effort to put more stuff up on
       <a href="https://public.tableau.com/en-us/s/">Tableau Public</a> and give
       myself something to visualize besides company data. Here are some of those
       efforts.

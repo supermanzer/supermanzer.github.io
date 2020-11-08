@@ -1,5 +1,5 @@
 <template>
-  <v-parallax :src="getImage(i)" dark>
+  <v-parallax :src="source" dark>
     <v-overlay absolute>
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
@@ -14,17 +14,17 @@
 
 <script>
 export default {
-  name: 'AboutParallax',
+  name: "AboutParallax",
   props: {
-    i: { type: Number, required: true },
-    heading: { type: String, required: false, default: '' },
+    source: { type: String, required: true },
+    heading: { type: String, required: false, default: "" },
   },
   methods: {
     getImage(int) {
-      return `/images/parallax/${int + 2}.jpeg`
+      return `/images/parallax/${int + 2}.jpeg`;
     },
   },
-}
+};
 </script>
 
 <style></style>

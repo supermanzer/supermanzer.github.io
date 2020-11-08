@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import TabComp from './TabComp'
-import ExpansionComp from './ExpansionComp'
+import TabComp from "@/components/TabComp";
+import ExpansionComp from "@/components/ExpansionComp";
 export default {
   components: {
     TabComp,
@@ -17,14 +17,14 @@ export default {
   computed: {
     myComponent() {
       const components = {
-        TA: 'TabComp',
-        LI: 'ListComp',
-        EP: 'ExpansionComp',
-      }
-      return components[this.element]
+        TA: "TabComp",
+        LI: "ListComp",
+        EP: "ExpansionComp",
+      };
+      return components[this.element];
     },
   },
-}
+};
 </script>
 
 <style></style>

@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import marked from 'marked'
-import RowColumnBelow from './RC/RowColumnBelow'
-import RowColumnLeft from './RC/RowColumnLeft'
-import RowColumnRight from './RC/RowColumnRight'
-import AboutComponent from './AboutComponent'
+import marked from "marked";
+import RowColumnBelow from "@/components/RC/RowColumnBelow";
+import RowColumnLeft from "@/components/RC/RowColumnLeft";
+import RowColumnRight from "@/components/RC/RowColumnRight";
+import AboutComponent from "@/components/about/AboutComponent";
 
 export default {
-  name: 'AboutSection',
+  name: "AboutSection",
   components: {
     RowColumnBelow,
     RowColumnLeft,
@@ -36,19 +36,19 @@ export default {
   computed: {
     component() {
       const components = {
-        ri: 'RowColumnRight',
-        le: 'RowColumnLeft',
-        be: 'RowColumnBelow',
-      }
-      return components[this.section.component_position]
+        ri: "RowColumnRight",
+        le: "RowColumnLeft",
+        be: "RowColumnBelow",
+      };
+      return components[this.section.component_position];
     },
   },
   methods: {
     markdown(text) {
-      return marked(text)
+      return marked(text);
     },
   },
-}
+};
 </script>
 
 <style></style>
