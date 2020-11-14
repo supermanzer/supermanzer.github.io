@@ -24,6 +24,12 @@
         </v-container>
       </v-form>
     </v-card-text>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn color="indigo" dark @click="updateComponent"
+        >Update Component</v-btn
+      >
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -32,6 +38,7 @@ export default {
   name: "ComponentForm",
   props: {
     comp: { type: Object, required: false, default: false },
+    index: { type: Number, required: false, default: false },
   },
   data() {
     return {
@@ -49,6 +56,12 @@ export default {
           text: "",
         };
       }
+    },
+    updateComponent() {
+      // TODO: Figure out how best to handle this when we no longer have
+      // a relationship to the About section this corresponds to.
+      const compObj = { index: this.index, component: this.component };
+      this.$emit("update-component", compObj);
     },
   },
   created() {

@@ -1,6 +1,29 @@
 <template>
   <v-form>
-    <h2 class="indigo--text text--darken-3">Edit Page Section - {{ id }}</h2>
+    <v-row>
+      <v-col cols="12" sm="10" justify-start align-left>
+        <h2 class="indigo--text text--darken-3">
+          Edit Page Section - {{ id }}
+        </h2>
+      </v-col>
+      <v-col cols="12" sm="2" justify-end align-right>
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              color="info"
+              icon
+              v-on="on"
+              v-bind="attrs"
+              @click="syncSection"
+            >
+              <v-icon>mdi-swap-vertical</v-icon>
+            </v-btn>
+          </template>
+          <span> Sync About section to Firestore </span>
+        </v-tooltip>
+      </v-col>
+    </v-row>
+
     <v-row>
       <v-col cols="12" lg="6">
         <v-select
@@ -41,7 +64,10 @@
       </v-col>
     </v-row>
     <v-container grid-list-md>
-      <EditComponents :components="components" />
+      <EditComponents
+        :components="components"
+        @update-components="refreshComponents"
+      />
     </v-container>
   </v-form>
 </template>
@@ -117,7 +143,6 @@ export default {
       );
     },
   },
-
   data() {
     return {
       items: {
@@ -133,6 +158,17 @@ export default {
         ],
       },
     };
+  },
+  methods: {
+    refreshComponents(components) {
+      console.log("refreshing components for section");
+      const id = this.id;
+      this.$store.commit("about/updateComponents", { id, components });
+    },
+    syncSection() {
+      const id = this.id;
+      this.$store.dispatch("about/updateSection", id);
+    },
   },
 };
 </script>

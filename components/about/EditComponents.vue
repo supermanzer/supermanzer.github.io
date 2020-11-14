@@ -27,7 +27,11 @@
     </v-toolbar>
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="(component, k) in components" :key="k">
-        <ComponentForm :comp="component" />
+        <ComponentForm
+          :comp="component"
+          :index="k"
+          @update-component="refreshComponent"
+        />
       </v-tab-item>
     </v-tabs-items>
   </v-card>
@@ -52,6 +56,12 @@ export default {
         text: "",
       };
       this.components.push(newComp);
+    },
+    refreshComponent(args) {
+      let { index, component } = args;
+      this.components[index] = component;
+      const updatedComponents = this.components;
+      this.$emit("update-components", updatedComponents);
     },
   },
 };

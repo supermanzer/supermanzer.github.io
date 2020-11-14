@@ -57,20 +57,20 @@ const mutations = {
   },
   updateIcon(state, payload) {
     const section = fetchSection(state, payload.id)
-    section.heading = payload.icon
+    section.icon = payload.icon
   },
   updateText(state, payload) {
     const section = fetchSection(state, payload.id)
-    section.heading = payload.text
+    section.text = payload.text
   },
   updateParallaxImage(state, payload) {
     const section = fetchSection(state, payload.id)
     section.parallax_image = payload.image
   },
-  updateComponent(state, payload) {
+  updateComponents(state, payload) {
     const section = fetchSection(state, payload.id)
-    const revisedComponent = payload.component
-    section.components[payload.index] = revisedComponent
+    const revisedComponents = payload.components
+    section.components= revisedComponents
   }
 }
 
@@ -83,8 +83,9 @@ const actions = {
         commit('SET_SECTIONS', resp.docs)
       })
   },
-  updateSection(id) {
-    const section = getters.getSection(id);
+  updateSection(obj, id) {
+    console.log(id);
+    const section = fetchSection(obj.state, id);
     this.$fireStore.collection('about').doc(id).set(section)
   },
 }
