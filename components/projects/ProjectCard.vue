@@ -1,12 +1,17 @@
 <template>
-  <v-card :dark="false" :elevation="3" :height="300" :width="500" class="">
+  <v-card
+    :dark="false"
+    :elevation="3"
+    :min-width="300"
+    :min-height="400"
+    class=""
+  >
     <v-card-title class="text-uppercase d-flex justify-left">{{
       project.title
     }}</v-card-title>
     <v-divider></v-divider>
-    <v-card-text class="test d-flex justify-center">{{
-      project.summary
-    }}</v-card-text>
+    <v-card-text class="">{{ project.summary }}</v-card-text>
+
     <v-card-actions class="bottom-actions">
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -47,8 +52,8 @@
 <script>
 export default {
   transition: {
-    name: 'to-detail',
-    mode: 'out-in',
+    name: "to-detail",
+    mode: "out-in",
     duration: 500,
   },
   props: {
@@ -56,11 +61,11 @@ export default {
   },
   computed: {
     projectUrl() {
-      return `projects/${this.project.id}`
+      return `projects/${this.project.id}`;
     },
   },
   methods: {},
-}
+};
 </script>
 
 <style scoped>
@@ -68,5 +73,6 @@ export default {
   position: absolute;
   bottom: 1rem;
   width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 </style>

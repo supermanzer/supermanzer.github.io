@@ -6,7 +6,9 @@
       app
       dark
       fixed
-      class="grey darken-2 py-3"
+      flat
+      elevate-on-scroll
+      class="py-3"
     >
       <v-row class="mt-15" align="center" justify="center">
         <v-col cols="12" align="center">

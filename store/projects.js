@@ -1,3 +1,9 @@
+/**
+ * Projects.js - This store module handles all operations pertaining to various projects displayed on this site.  This includes CRUD operations if the 
+ * user is logged in.
+ */
+
+
 const state = () => ({
   // prettier-ignore
   all: [],

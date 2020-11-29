@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-lg>
-    <v-card>
+    <v-card height="1300" width="1920">
       <v-card-title>
         {{ vizObj.title }}
       </v-card-title>

@@ -6,10 +6,6 @@
         <h4 class="subheading mb-3 white--text">
           Full stack software engineer, data scientist, oceanographer
         </h4>
-        <!-- <v-form @submit.prevent="snackTime">
-          <v-text-field v-model="snackText" label="Snack Text"></v-text-field>
-          <v-btn color="info" @click="snackTime">Test Snack</v-btn>
-        </v-form> -->
       </v-col>
     </v-row>
   </div>

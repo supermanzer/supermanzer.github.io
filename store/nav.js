@@ -30,8 +30,12 @@ export const state = () => ({
       icon: 'mdi-chart-areaspline',
       title: 'Tableau',
       to: '/tableau'
-
-    }
+    },
+    {
+      icon: 'mdi-robot-excited',
+      title: "Neat Stuff",
+      to: '/excited',
+    },
   ],
 })
 

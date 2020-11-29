@@ -60,6 +60,9 @@ export default {
     };
   },
   created() {
+    if (this.$store.state.projects.all.length === 0) {
+      this.loadProjects();
+    }
     this.setProject();
   },
   computed: {
@@ -77,6 +80,9 @@ export default {
     setProject() {
       const id = this.$route.params.id;
       this.project = this.$store.getters["projects/getProject"](id);
+    },
+    async loadProjects() {
+      await this.$store.dispatch("projects/loadProjects");
     },
   },
 };

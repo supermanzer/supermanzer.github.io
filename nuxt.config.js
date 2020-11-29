@@ -28,7 +28,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: 'The personal website of Ryan Manzer',
       },
     ],
     link: [{
@@ -71,6 +71,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/vuetify',
     '@nuxtjs/firebase',
+    '@nuxt/content',
   ],
 
   axios: {

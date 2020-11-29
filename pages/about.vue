@@ -58,15 +58,6 @@ export default {
       return this.loggedIn && !editPath;
     },
   },
-
-  // mapState({
-  //   page: (state) => state.about.page,
-  //   loggedIn: (state) => state.auth.loggedIn,
-  // }),
-  // editToggle() {
-  //   const editPath = this.$route.path.indexOf("edit") >= 0;
-  //   return this.loggedIn && !editPath;
-  // },
 };
 </script>
 
