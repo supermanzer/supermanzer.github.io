@@ -86,6 +86,12 @@ export default {
   generate: {
     dir: 'docs'
   },
+  /**
+   * Nuxt Content Configuration
+   */
+  content: {
+    nestedProperties: ['author.name'],
+  },
   /*
    ** Nuxt.js modules
    */

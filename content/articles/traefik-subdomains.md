@@ -5,7 +5,7 @@ tech: Traefik
 img: https://doc.traefik.io/traefik/v1.7/img/traefik.logo.png
 author:
   name: Ryan Manzer
-  bio: Get to know the Supermanzer
+  bio: He puts the Manzer in Supermanzer
   image: "/images/supermanzer.jpeg"
 ---
 

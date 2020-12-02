@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card shaped nuxt :to="`/excited/${article.slug}`">
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-5">TECH: {{ article.tech }}</div>
@@ -14,18 +14,7 @@
         <v-img :src="article.img" :alt="article.title"></v-img>
       </v-list-item-avatar>
     </v-list-item>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn
-        color="info"
-        outlined
-        rounded
-        text
-        nuxt
-        :to="`/excited/${article.slug}`"
-        >Read</v-btn
-      >
-    </v-card-actions>
+    <v-card-actions> </v-card-actions>
   </v-card>
 </template>
 

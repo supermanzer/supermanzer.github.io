@@ -6,8 +6,6 @@
       app
       dark
       fixed
-      flat
-      elevate-on-scroll
       class="py-3"
     >
       <v-row class="mt-15" align="center" justify="center">
@@ -43,7 +41,13 @@
       </v-row>
     </v-navigation-drawer>
     <nav>
-      <v-app-bar app dark color="rgba(50,50,50,0.75" :clipped-left="clipped">
+      <v-app-bar
+        app
+        dark
+        color="rgba(50,50,50,0.5)"
+        :clipped-left="clipped"
+        hide-on-scroll
+      >
         <v-app-bar-nav-icon
           class="grey--text text--lighten-2"
           @click="drawer = !drawer"

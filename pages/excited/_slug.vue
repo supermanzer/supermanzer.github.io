@@ -14,7 +14,7 @@
               {{ article.description }}
             </p>
             <p>Last Updated: {{ formatDate(article.updatedAt) }}</p>
-            <v-divider></v-divider>
+            <v-divider class="mb-10"></v-divider>
             <nuxt-content :document="article" />
           </article>
         </v-card>
@@ -71,6 +71,10 @@ html {
   color: solid white 1px;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.nuxt-content pre {
+  margin-bottom: 40px;
 }
 
 div.nuxt-content {

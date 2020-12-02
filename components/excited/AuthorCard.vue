@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto">
+  <v-card class="mx-auto" nuxt :to="`/excited/author/${author.name}`">
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-5">AUTHOR</div>
