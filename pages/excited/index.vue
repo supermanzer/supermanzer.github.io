@@ -28,6 +28,9 @@ export default {
 
     return { articles };
   },
+  head: {
+    title: "Excited",
+  },
 };
 </script>
 

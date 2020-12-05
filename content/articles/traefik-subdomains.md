@@ -3,6 +3,8 @@ title: Using Traefik with Docker-Compose
 description: How I learned to stop worrying and love my router
 tech: Traefik
 img: https://doc.traefik.io/traefik/v1.7/img/traefik.logo.png
+published_to_twitter: false
+
 author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer

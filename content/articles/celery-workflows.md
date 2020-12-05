@@ -3,6 +3,7 @@ title: Composing Asynchronous Workflows with Celery
 description: Improving the business logic of my applications and understanding of record validation with Celery workflows
 tech: Celery
 img: https://img.stackshare.io/service/1075/celery.png
+published_to_twitter: false
 author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
@@ -11,10 +12,10 @@ author:
 
 ### My Situation
 
-I have been building applications using the [Django](https://www.djangoproject.com/) for a while. Most of the time it was just little hobby projects but
-for the past 3 years or so (as of first writing this) I've been building steadily more complex internal applications using this framework. I find Python
-a fun language to write software in and the Django project does a good job of porting that fun to designing web applications. I really enjoy how well
-Object Oriented Programming (OOP) concepts translate to designing data systems. As one of the reasons I started coding was to solve business administration
+I have been building applications using the [Django](https://www.djangoproject.com/) framework for a while. Most of the time it was just little hobby projects but
+for the past 3 years or so (as of first writing this) I've been building steadily more complex business applications using this framework. I find Python
+a fun language to write software in and the Django framework does a good job of porting that fun to designing web applications. I really enjoy how well
+Object Oriented Programming (OOP) concepts translate to designing data systems. Since one of the reasons I started coding was to solve business administration
 problems (see [About Me](/about)), this felt like a natural evolution of my interests. However, as my applications have started to do more and more I have
 had to learn some new techniques to solve the problems I want to solve while providing the performance I want to give my users.
 
@@ -26,9 +27,9 @@ queries for things like inserting orders in large batches. Incidentally [Postgre
 
 <img src="https://www.acunetix.com/wp-content/uploads/2019/06/slow.png" width=400>
 
-Anyway, the ERP back-end was not well indexed and did not take advantage of PostgreSQL table partitioning so queries ran pretty dang slow like (1-5 seconds for a basic SELECT with ~10K records). My most used application processed reconciliation files
+Anyway, the ERP back-end ran pretty dang slow like (1-5 seconds for a basic SELECT with ~10K records). My most used application processed reconciliation files
 from Amazon, turned them into aggregated orders (by state for tax purposes), and wrote the orders and lines into the ERP. Back when we first started the number
-of transactions were pretty minimal but due to the issues with the ERP back-end it wasn't speedy. Then I kept getting requests for additional functions to be built into the file processing and order writing functions. All of this was taking so long I had to adjust my request timeout values to tens of minutes just to keep my users from getting shown the "Broken Server" screen.
+of transactions were pretty minimal and processing was speedy but Amazon is kind of good at helping people buy stuff so our volume took off and my application got quite sluggish. Then I kept getting requests for additional functions to be built into the file processing and order writing functions. All of this was taking so long I had to adjust my request timeout values to tens of minutes just to keep my users from getting shown the "Broken Server" screen.
 
 ### Celery to the Rescue
 
@@ -36,13 +37,13 @@ of transactions were pretty minimal but due to the issues with the ERP back-end 
 
 I became aware of [Celery](https://docs.celeryproject.org/en/stable/) when I started researching how to Docker-ize my Django apps. Most of the tutorials I found took me through not only creating services for my Proxy Server (NGINX), Database (PostgreSQL), and Web application (Django) but also involved using Celery + [RabbitMQ](https://www.rabbitmq.com/) (seriously, who names these things?) as well as using Redis for cache and session management. I figured it was better to have a more robust system than not so I went with it.
 
-I want to point out here that, in addition to pushing tasks to the broker from the application (i.e. user actions), you can also create schedules for task execution using a plugin called `beat-scheduler`.
+For those of you not familiar but curious I would highly encourage you to read the documentation linked above. However just to get everyone on the same page, Celery allows you to offload some of the computational work of an application to worker processes that process these tasks asynchronously while allowing your application to respond back the user in a timely manner. Apps write tasks (with signatures detailing inputs and such) to message broker(s) (RabbitMQ in this case) and a worker process grabs the task signature and gets to work. In addition to getting triggered via a user request, you can aslo schedule tasks using `beat-scheduler` in Celery. This has been a huge help to me running both high frequency API polling and also periodic maintenance functions in my applications.
 
 <img src="https://www.oreilly.com/library/view/learn-web-development/9781789953299/assets/857bb6b8-e872-410f-8a68-fd4e3ebb34ad.png" width=500>
 
 In fact, by installing a module called `django-beat-scheduler` I was able to create `crontab` like schedules for any task I wanted directly in the default Django admin interface. Anyone working across multiple development environments and version control will understand how much easier it makes your life to be able to do something like that without modifying any actual code.
 
-Now I was able to bundle up all the file processing actions into a task. When my application needed to perform these actions a task was pushed to the RabbitMQ broker and the ID of that task was returned back to my application. I even learned, through Celery's wonderful documentation, how to make my task update it's status with an indication of the progress. I wrote a nifty little Django view that returned task details when a valid task ID was included in the URL, added a little JavaScript to rendered HTML to ping my server and update the task status. I was feeling pretty dang cool!
+Now I was able to bundle up all the file processing actions into a task. When my application needed to perform these actions a task was pushed to the RabbitMQ broker and the ID of that task was returned back to my application. I even learned, through Celery's wonderful documentation, how to have my tasks update their status to indicate their progress for long running tasks (e.g. `{status: 'In Progress', processed: 17, total: 80}`). I wrote a nifty little Django view that returned task details when a valid task ID was included in the URL and wrote a simple Javascript to check task status every 20 seconds and update a progress bar and tooltip text with the info. I was feeling pretty dang cool!
 
 <img src="https://cdn.shopify.com/s/files/1/1061/1924/products/Emoji_Icon_-_Sunglasses_cool_emoji.png?v=1485573433" width=100>
 
@@ -80,7 +81,7 @@ def make_bom(data)
     task_chain = chain(fetch_bom(data), make_product.s(), make_component.s())()
 
 @app.task
-def group_boms(materials_to_make):
+def group_boms(list_of_bom_data):
   """create product and component records for each bill of materials record"""
 
   g_chainz = g(make_bom.s(data) for data in list_of_bom_data)()

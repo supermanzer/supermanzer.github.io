@@ -26,7 +26,6 @@
 <script>
 import TableOfContents from "@/components/excited/TableOfContents.vue";
 import AuthorCard from "@/components/excited/AuthorCard.vue";
-
 export default {
   async asyncData({ $content, params }) {
     const article = await $content("articles", params.slug).fetch();
@@ -42,6 +41,19 @@ export default {
   components: {
     TableOfContents,
     AuthorCard,
+  },
+  head() {
+    return {
+      title: this.$route.params.slug.replace("-", " ").toUpperCase(),
+      meta: [
+        { hid: "twitter:card", name: "twitter:card", content: "summary" },
+        {
+          hid: "twitter-author",
+          name: "twitter:creator",
+          content: "@supermanzer",
+        },
+      ],
+    };
   },
 };
 </script>
