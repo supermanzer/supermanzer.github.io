@@ -31,7 +31,7 @@ const mutations = {
 }
 
 const actions = {
-  loadProjects({ commit }) {
+  async loadProjects({ commit }) {
     this.$fireStore
       .collection('projects')
       .get()

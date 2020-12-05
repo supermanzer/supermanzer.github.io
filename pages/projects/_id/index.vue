@@ -59,11 +59,13 @@ export default {
       project: {},
     };
   },
-  created() {
+  async created() {
     if (this.$store.state.projects.all.length === 0) {
-      this.loadProjects();
+      await this.loadProjects();
+      this.setProject();
+    } else {
+      this.setProject();
     }
-    this.setProject();
   },
   computed: {
     loggedIn() {
