@@ -40,6 +40,7 @@
           text
           color="deep-purple accent-4"
           :href="project.github_url"
+          target="_"
         >
           <v-icon>mdi-github</v-icon>
           View on Github

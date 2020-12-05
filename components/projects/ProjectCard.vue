@@ -20,6 +20,7 @@
             icon
             color="indigo accent-2"
             :href="project.github_url"
+            target="_"
             v-bind="attrs"
             v-on="on"
           >
