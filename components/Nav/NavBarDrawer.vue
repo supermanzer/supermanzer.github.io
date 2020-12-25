@@ -41,13 +41,7 @@
       </v-row>
     </v-navigation-drawer>
     <nav>
-      <v-app-bar
-        app
-        dark
-        color="rgba(50,50,50,0.5)"
-        :clipped-left="clipped"
-        hide-on-scroll
-      >
+      <v-app-bar app dark :clipped-left="clipped" elevate-on-scroll>
         <v-app-bar-nav-icon
           class="grey--text text--lighten-2"
           @click="drawer = !drawer"
@@ -101,4 +95,14 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* I HATE doing the whole !important thing but I couldn't find another way - Look into this */
+header.v-app-bar--hide-shadow {
+  background-color: rgba(50, 50, 50, 0) !important;
+  border-color: rgba(50, 50, 50, 0) !important;
+}
+header.v-app-bar--is-scrolled {
+  background-color: rgba(50, 50, 50, 0.7) !important;
+  border-color: rgba(50, 50, 50, 0.7) !important;
+}
+</style>

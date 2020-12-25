@@ -43,7 +43,7 @@ export default {
     loggedIn: (state) => state.auth.loggedIn,
   }),
   created() {
-    this.$store.dispatch("about/getAboutSections");
+    // this.$store.dispatch("about/getAboutSections");
   },
 };
 </script>

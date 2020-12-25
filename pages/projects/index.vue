@@ -26,7 +26,7 @@ export default {
     },
   },
   created() {
-    this.loadProjects();
+    // this.loadProjects();
   },
   methods: {
     loadProjects() {

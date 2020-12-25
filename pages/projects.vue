@@ -41,7 +41,22 @@ export default {
       return this.$store.state.auth.loggedIn;
     },
   },
+  methods: {
+    checkAndLoad() {
+      if (this.$store.state.projects.all.length === 0) {
+        this.$store.dispatch("projects/loadProjects");
+      }
+    },
+  },
+  created() {
+    this.checkAndLoad();
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h1,
+h3 {
+  color: white;
+}
+</style>

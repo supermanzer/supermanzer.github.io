@@ -56,6 +56,7 @@ export default {
   plugins: [
     '~/plugins/filters.js',
     '~/plugins/notifier.js',
+    '~/plugins/preview.client.js'
   ],
   /*
    ** Auto import components

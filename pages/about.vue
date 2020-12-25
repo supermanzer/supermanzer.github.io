@@ -3,8 +3,14 @@
     <v-row class="d-flex justify-space-between">
       <v-col cols="12" lg="6">
         <span class="text-h3" v-text="page.title"></span>
+        <h3>RAGE</h3>
       </v-col>
-      <v-col cols="12" lg="6" class="d-flex align-end justify-end">
+      <v-col
+        cols="12"
+        lg="6"
+        class="d-flex align-end justify-end"
+        v-if="loggedIn"
+      >
         <v-tooltip bottom v-if="editToggle">
           <template v-slot:activator="{ on, attrs }">
             <v-btn
@@ -57,6 +63,16 @@ export default {
       const editPath = this.$route.path.indexOf("edit") >= 0;
       return this.loggedIn && !editPath;
     },
+  },
+  methods: {
+    checkAndLoad() {
+      if (this.$store.state.about.page.sections.length === 0) {
+        this.$store.dispatch("about/getAboutSections");
+      }
+    },
+  },
+  created() {
+    this.checkAndLoad();
   },
 };
 </script>

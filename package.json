@@ -19,6 +19,7 @@
     "firebase": "^7.21.0",
     "marked": "^1.1.1",
     "nuxt": "^2.13.0",
+    "package.json": "^2.0.1",
     "twit": "^2.2.11"
   },
   "devDependencies": {
