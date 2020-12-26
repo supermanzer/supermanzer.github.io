@@ -50,8 +50,8 @@ export default {
   },
   methods: {
     watchScroll(e) {
-      const trigger = this.position + 300;
-      const bottomPosition = window.scrollY + window.innerHeight;
+      const trigger = this.position;
+      const bottomPosition = window.scrollY + window.innerHeight / 2;
       if (bottomPosition > trigger) {
         this.show = true;
       }

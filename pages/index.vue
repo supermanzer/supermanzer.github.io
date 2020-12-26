@@ -133,8 +133,9 @@ export default {
   margin-top: 10em;
 }
 .two-thirds-down {
+  min-height: 40em;
   margin-top: 20em;
-  margin-bottom: 40em;
+  margin-bottom: 30em;
 }
 .big-vert {
   margin-top: 20em;
