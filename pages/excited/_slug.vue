@@ -13,7 +13,10 @@
             <p class="subheading">
               {{ article.description }}
             </p>
-            <p>Last Updated: {{ formatDate(article.updatedAt) }}</p>
+            <div class="d-flex justify-space-around">
+              <span>Created: {{ formatDate(article.createdAt) }}</span>
+              <span>Last Updated: {{ formatDate(article.updatedAt) }} </span>
+            </div>
             <v-divider class="mb-10"></v-divider>
             <nuxt-content :document="article" />
           </article>

@@ -9,6 +9,7 @@ export const state = () => ({
     rightDrawer: false,
     title: 'Supermanzer',
     miniVariant: false,
+    show: true,
   },
   links: [
     {
@@ -43,6 +44,13 @@ export const mutations = {
   TOGGLE_DRAWER(state) {
     state.settings.drawer = !state.settings.drawer
   },
+  TOGGLE_NAV_SHOW(state) {
+    
+    state.settings.show = !state.settings.show
+  },
+  SET_NAV_SHOW(state, val) {
+    state.settings.show = val
+  }
 }
 
 export const actions = {

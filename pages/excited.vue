@@ -18,6 +18,9 @@
 <script>
 export default {
   name: "ExcitedHome",
+  created() {
+    this.$store.commit("nav/SET_NAV_SHOW", true);
+  },
 };
 </script>
 

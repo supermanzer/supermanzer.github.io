@@ -40,32 +40,35 @@
         </v-list>
       </v-row>
     </v-navigation-drawer>
-    <nav>
-      <v-app-bar app dark :clipped-left="clipped" elevate-on-scroll>
-        <v-app-bar-nav-icon
-          class="grey--text text--lighten-2"
-          @click="drawer = !drawer"
-        ></v-app-bar-nav-icon>
-        <v-toolbar-title
-          class="text-uppercase grey--text text--lighten-2 mx-10"
-          to="/"
-          v-text="title"
-        >
-        </v-toolbar-title>
-        <SnackBar />
-        <v-spacer></v-spacer>
-        <div class="hidden-md-and-down">
-          <v-btn
-            v-for="(link, i) in navLinks"
-            :key="i"
-            text
-            :nuxt="true"
-            :to="link.to"
-            v-text="link.title"
-          ></v-btn>
-        </div>
-      </v-app-bar>
-    </nav>
+    <transition name="fade-transition">
+      <nav v-show="show">
+        <v-app-bar app :dark="dark" :clipped-left="clipped" elevate-on-scroll>
+          <v-app-bar-nav-icon
+            :class="textClassObject"
+            @click="drawer = !drawer"
+          ></v-app-bar-nav-icon>
+          <v-toolbar-title
+            :class="textClassObject"
+            class="text-uppercase mx-10"
+            to="/"
+            v-text="title"
+          >
+          </v-toolbar-title>
+          <SnackBar />
+          <v-spacer></v-spacer>
+          <div class="hidden-md-and-down">
+            <v-btn
+              v-for="(link, i) in navLinks"
+              :key="i"
+              text
+              :nuxt="true"
+              :to="link.to"
+              v-text="link.title"
+            ></v-btn>
+          </div>
+        </v-app-bar>
+      </nav>
+    </transition>
   </div>
 </template>
 
@@ -75,6 +78,9 @@ export default {
   name: "NavBarDrawer",
   components: {
     SnackBar,
+  },
+  props: {
+    dark: { type: Boolean, required: false, default: true },
   },
   data() {
     return {
@@ -91,6 +97,14 @@ export default {
     navLinks() {
       return this.$store.state.nav.links;
     },
+    show() {
+      return this.$store.state.nav.settings.show;
+    },
+    textClassObject() {
+      return {
+        "grey--text text--lighten-2": this.dark,
+      };
+    },
   },
 };
 </script>
@@ -104,5 +118,6 @@ header.v-app-bar--hide-shadow {
 header.v-app-bar--is-scrolled {
   background-color: rgba(50, 50, 50, 0.7) !important;
   border-color: rgba(50, 50, 50, 0.7) !important;
+  color: white !important;
 }
 </style>

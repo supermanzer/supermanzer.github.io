@@ -4,7 +4,7 @@
     <v-main class="gradient-ck fh">
       <nuxt />
     </v-main>
-    <!-- <v-footer :absolute="true">
+    <!--  <v-footer :absolute="true">
       <v-row justify="center" align="center">
         <span>&copy; 2020 C. Ryan Manzer</span>
       </v-row>
@@ -15,7 +15,7 @@
 <script>
 import NavBarDrawer from "@/components/Nav/NavBarDrawer";
 export default {
-  name: "HomeLayout",
+  name: "DefaultLayout",
   components: {
     NavBarDrawer,
   },
@@ -29,7 +29,10 @@ export default {
     #010203 0%,
     #133858 70%,
     #2595b4 95%,
-    #308f61 100%
+    #259c63 100%
   );
+}
+footer {
+  background: rgba(50, 50, 50, 0.5);
 }
 </style>

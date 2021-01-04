@@ -1,10 +1,11 @@
 <template>
   <v-row justify-space-between>
-    <v-col cols="12" lg="6" offset-lg="1">
+    <v-col cols="12" lg="7" offset-lg="1">
       <div class="my-6" v-for="article in articles" :key="article.slug">
         <post-card :article="article" />
       </div>
     </v-col>
+    <v-col cols="12" lg="1"></v-col>
     <v-col cols="12" lg="3">
       <search-input />
     </v-col>
@@ -29,9 +30,9 @@ export default {
         "img",
         "slug",
         "author",
-        "updatedAt",
+        "createdAt",
       ])
-      .sortBy("createdAt", "asc")
+      .sortBy("createdAt", "desc")
       .fetch();
 
     return { articles };

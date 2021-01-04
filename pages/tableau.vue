@@ -41,6 +41,9 @@ export default {
       return this.$store.state.auth.loggedIn;
     },
   },
+  created() {
+    this.$store.commit("nav/SET_NAV_SHOW", true);
+  },
 };
 </script>
 

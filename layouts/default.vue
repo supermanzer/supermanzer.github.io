@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <NavBarDrawer />
-    <v-main class="gradient-ck fh">
+    <NavBarDrawer :dark="false" />
+    <v-main class="fh blue-grey lighten-5">
       <nuxt />
     </v-main>
     <!--  <v-footer :absolute="true">
@@ -23,15 +23,6 @@ export default {
 </script>
 
 <style>
-.gradient-ck {
-  background-image: linear-gradient(
-    5deg,
-    #010203 0%,
-    #133858 70%,
-    #2595b4 95%,
-    #259c63 100%
-  );
-}
 footer {
   background: rgba(50, 50, 50, 0.5);
 }

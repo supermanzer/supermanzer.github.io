@@ -50,13 +50,10 @@ export default {
   },
   created() {
     this.checkAndLoad();
+    this.$store.commit("nav/SET_NAV_SHOW", true);
   },
 };
 </script>
 
 <style lang="scss" scoped>
-h1,
-h3 {
-  color: white;
-}
 </style>

@@ -3,7 +3,6 @@
     <v-row class="d-flex justify-space-between">
       <v-col cols="12" lg="6">
         <span class="text-h3" v-text="page.title"></span>
-        <h3>RAGE</h3>
       </v-col>
       <v-col
         cols="12"
@@ -73,6 +72,7 @@ export default {
   },
   created() {
     this.checkAndLoad();
+    this.$store.commit("nav/SET_NAV_SHOW", true);
   },
 };
 </script>
