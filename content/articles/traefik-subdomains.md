@@ -13,7 +13,7 @@ author:
 
 ### Traefik Routing and Sub-Domains
 
-<img src="https://doc.traefik.io/traefik/assets/img/traefik-architecture.png" width="800"/>
+<img src="https://doc.traefik.io/traefik/assets/img/traefik-architecture.png" width="600"/>
 
 From what I can tell, people like the reverse proxy and load balancer [Traefik](https://traefik.io/traefik/) for plenty of reasons. But this blog is about what **I'm** excited about so here is why I got so excited once I figured out how to integrate it into my tech stack. While there are many features that I'm excited to explore, the ones I'm going to detail below are what motivated me to spend valuable time learning how to integrate Traefik into my everyday tech stack.
 

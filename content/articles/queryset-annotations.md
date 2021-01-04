@@ -70,7 +70,7 @@ In this case we query the database for the details of a specific FinishedProduct
 
 ## Annotations to the Rescue!
 
-Now here's where Django annotations REALLY shine. Just as one could write a custom SQL query to return the calculation directly in the database, we can do the same with the Django API. Here I use [F expressions](https://docs.djangoproject.com/en/3.1/ref/models/expressions/#f-expressions), which are not as rude as they might sound like. F expressions allow you to make references to the values of fields (or annotations) in the database. You can actually get some pretty cool efficiency optimization out of it as well! Let's take a look:
+Now here's where Django annotations REALLY shine. Just as one could write a custom SQL query to return the calculation directly in the database, we can do the same with the Django API. Here I use [F expressions](https://docs.djangoproject.com/en/3.1/ref/models/expressions/#f-expressions), which are not as rude as they might sound. F expressions allow you to make references to the values of fields (or annotations) in the database. You can actually get some pretty cool efficiency optimization out of it as well! Let's take a look:
 
 ```python
 """
@@ -118,7 +118,9 @@ class FPRList(ListView):
 
 ## Reusability Counts
 
-Well that was nifty but an astute reader might be asking "Why bother with the `model_annotations.py` file when you could just write the calculation in the `get_queryset` method?". Good question, I'm glad you asked! As we can see from our models defined earlier, the FinishedProductRun is the only model to which this annotation can apply since it's the only one with the required fields. Now if we only had this one list view then it would seem perfectly reasonable
+Well that was nifty but an astute reader might be asking "Why bother with the `model_annotations.py` file when you could just write the calculation in the `get_queryset` method?". Good question, I'm glad you asked!
+
+As we can see from our models defined earlier, the FinishedProductRun is the only model to which this annotation can apply since it's the only one with the required fields. Now if we only had this one list view then it would seem perfectly reasonable
 to just define the the calculation directly in the `get_queryset` method. However...it has been my experience applications tend to keep expanding. What if you need a separate list view to return specific subsets of our model? What if we need to use the `bulk_quantity` annotation on the related `finished_products` set for a specific BulkProductRun? Sure it's not hard to copy and paste a few times but what if we need to rename one of the fields involved? You can see how this can become a tangled mess really quickly. This is why, shortly after beginning to use annotations (and creating some of the problems I just described!), I took the approach of creating a `model_annotations.py` file where I store them. And, since there is nothing model specific about the annotations themselves, we could define annotations based on fields that exist on more than one model (`date_created` for example) and apply it when retrieving data from any of our models.
 
 Anyway, I have found Django queryset annotations to be something that makes me smile when seeking to provide more useful info for my end users so I thought I'd share.
