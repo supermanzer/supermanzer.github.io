@@ -120,4 +120,7 @@ header.v-app-bar--is-scrolled {
   border-color: rgba(50, 50, 50, 0.7) !important;
   color: white !important;
 }
+header.v-app-bar--is-scrolled .v-btn {
+  color: white !important;
+}
 </style>
