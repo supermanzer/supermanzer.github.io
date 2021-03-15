@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col lg="8" offset-lg="2" md="10" offset-md="1" sm="12">
+    <v-col lg="10" offset-lg="1" md="10" offset-md="1" sm="12">
       <v-card class="mx-auto mb-10">
         <v-list-item two-line>
           <v-list-item-content>

@@ -22,7 +22,7 @@
             <h3>Welcome friends</h3>
             <br />
             <p>
-              This is my first serious attempt to buld a personal site and I
+              This is my first significant attempt to buld a personal site and I
               mostly use it to just have fun. I've spent most of my time in tech
               developing data systems, algorithms, and skimping on the visuals.
               For this site I'm engaging my artistic side a bit more and trying

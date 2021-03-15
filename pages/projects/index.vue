@@ -20,18 +20,10 @@ export default {
   components: {
     ProjectCard,
   },
-  computed: {
-    projects() {
-      return this.$store.state.projects.all;
-    },
-  },
-  created() {
-    // this.loadProjects();
-  },
-  methods: {
-    loadProjects() {
-      this.$store.dispatch("projects/loadProjects");
-    },
+  async asyncData({ $content }) {
+    const projects = await $content("projects").fetch();
+
+    return { projects };
   },
 };
 </script>

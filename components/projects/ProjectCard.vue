@@ -6,9 +6,12 @@
     :min-height="400"
     class=""
   >
-    <v-card-title class="text-uppercase d-flex justify-left">{{
-      project.title
-    }}</v-card-title>
+    <v-card-title class="text-uppercase d-flex justify-space-around">
+      {{ project.title }}
+      <v-avatar size="48px" v-if="project.img">
+        <v-img :src="project.img"></v-img>
+      </v-avatar>
+    </v-card-title>
     <v-divider></v-divider>
     <v-card-text class="">{{ project.summary }}</v-card-text>
 
@@ -16,10 +19,10 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-            v-if="project.github_url"
+            v-if="project.github_link"
             icon
             color="indigo accent-2"
-            :href="project.github_url"
+            :href="project.github_link"
             target="_"
             v-bind="attrs"
             v-on="on"
@@ -37,7 +40,8 @@
             text
             color="deep-purple accent-4"
             :bottom="true"
-            :to="projectUrl"
+            nuxt
+            :to="{ name: 'projects-slug', params: { slug: project.slug } }"
             v-bind="attrs"
             v-on="on"
           >
