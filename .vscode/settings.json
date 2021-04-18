@@ -4,4 +4,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false,
+    "editor.formatOnSave": false
+  }
 }

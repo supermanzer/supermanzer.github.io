@@ -31,15 +31,28 @@
             </v-list-item>
           </v-col>
           <v-col cols="12" sm="12" md="6" class="d-flex justify-end align-end">
-            <v-btn
-              color="white"
-              outlined
-              :href="project.github_link"
-              v-if="project.github_link"
-            >
-              <v-icon>mdi-github</v-icon>
-              View On Github
-            </v-btn>
+            <div class="d-flex flex-column">
+              <v-btn
+                color="white"
+                outlined
+                :href="project.github_link"
+                v-if="project.github_link"
+                class="block-btn"
+              >
+                <v-icon>mdi-github</v-icon>
+                View On Github
+              </v-btn>
+              <v-btn
+                color="white"
+                outlined
+                :href="project.dendron_link"
+                v-if="project.dendron_link"
+                class="block-btn"
+              >
+                <v-icon>mdi-source-branch</v-icon>
+                View Dendron Notes
+              </v-btn>
+            </div>
           </v-col>
         </v-row>
       </v-img>
@@ -78,5 +91,8 @@ export default {
 .v-card__text >>> div.nuxt-content {
   padding-bottom: 2rem;
   margin-bottom: 2rem;
+}
+.block-btn {
+  margin-top: 1em;
 }
 </style>

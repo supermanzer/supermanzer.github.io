@@ -8,14 +8,16 @@
       grow
     >
       <v-tab v-for="component in components" :key="component.id">
-        {{ component.heading }}
+        {{ component.title }}
         <v-icon v-if="component.icon">{{ component.icon }}</v-icon>
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="component in components" :key="component.id">
         <v-card flat>
-          <v-card-text v-html="markdown(component.text)"> </v-card-text>
+          <v-card-text>
+            <nuxt-content :document="component" />
+          </v-card-text>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -32,11 +34,6 @@ export default {
     return {
       tab: null,
     };
-  },
-  methods: {
-    markdown(text) {
-      return marked(text);
-    },
   },
 };
 </script>

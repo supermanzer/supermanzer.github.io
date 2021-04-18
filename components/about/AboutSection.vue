@@ -1,20 +1,31 @@
 <template>
-  <component :is="component">
-    <template v-slot:header>
-      <!--  p class="text-h4" v-text="section.heading"></p> -->
-      <p v-html="markdown(section.text)"></p>
-    </template>
-    <template v-slot:component>
-      <AboutComponent
-        :element="section.component_element"
-        :components="section.components"
-      />
-    </template>
-  </component>
+  <div>
+    <v-parallax :src="section.page.parallax_image" dark>
+      <v-overlay absolute>
+        <v-row align="center" justify="center">
+          <v-col class="text-center" cols="12">
+            <h1 class="font-weight-thin mb-4 display-1">
+              {{ section.page.title }}
+            </h1>
+          </v-col>
+        </v-row>
+      </v-overlay>
+    </v-parallax>
+    <component :is="component">
+      <template v-slot:header>
+        <nuxt-content :document="section.page" />
+      </template>
+      <template v-slot:component>
+        <AboutComponent
+          :element="section.page.component_element"
+          :components="section.sections"
+        />
+      </template>
+    </component>
+  </div>
 </template>
 
 <script>
-import marked from "marked";
 import RowColumnBelow from "@/components/RC/RowColumnBelow";
 import RowColumnLeft from "@/components/RC/RowColumnLeft";
 import RowColumnRight from "@/components/RC/RowColumnRight";
@@ -40,12 +51,7 @@ export default {
         le: "RowColumnLeft",
         be: "RowColumnBelow",
       };
-      return components[this.section.component_position];
-    },
-  },
-  methods: {
-    markdown(text) {
-      return marked(text);
+      return components[this.section.page.component_position];
     },
   },
 };

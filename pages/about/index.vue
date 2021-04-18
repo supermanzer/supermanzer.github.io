@@ -15,12 +15,15 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-card-text>
-          <div v-for="(section, i) in page.sections" :key="section.id">
+          <template v-for="(page,i) in result">
+            <about-section :section="page" :key="i" />
+          </template>
+          <!-- <div v-for="(section, i) in page.sections" :key="section.id">
             <AboutParallax
               :heading="section.heading"
               :source="section.parallax_image"
             />
-            <AboutSection :section="section" />
+            <AboutSection :section="section" /> -->
           </div>
         </v-card-text>
       </v-card>
@@ -38,12 +41,23 @@ export default {
     AboutSection,
     AboutParallax,
   },
-  computed: mapState({
-    page: (state) => state.about.page,
-    loggedIn: (state) => state.auth.loggedIn,
-  }),
-  created() {
-    // this.$store.dispatch("about/getAboutSections");
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState("about", ["page"]),
+  },
+  async asyncData({ $content, store }) {
+    const result = {};
+    const sections = store.state.about.sections;
+    for (let i = 0; i < sections.length; i++) {
+      result[sections[i]] = {};
+      const path = `about/${sections[i]}`;
+      const obj = await $content(path).fetch();
+      result[sections[i]].page = obj[0];
+      result[sections[i]].sections = await $content(`${path}/sections`).fetch();
+    }
+    return { result };
   },
 };
 </script>
