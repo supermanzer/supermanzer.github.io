@@ -17,20 +17,7 @@
 <script>
 export default {
   name: "ProjectParent",
-  computed: {
-    loggedIn() {
-      return this.$store.state.auth.loggedIn;
-    },
-  },
-  methods: {
-    checkAndLoad() {
-      if (this.$store.state.projects.all.length === 0) {
-        this.$store.dispatch("projects/loadProjects");
-      }
-    },
-  },
   created() {
-    this.checkAndLoad();
     this.$store.commit("nav/SET_NAV_SHOW", true);
   },
 };

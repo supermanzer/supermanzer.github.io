@@ -3,7 +3,7 @@
   "vetur.validation.template": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
   "[markdown]": {
     "editor.wordWrap": "on",
     "editor.quickSuggestions": false,

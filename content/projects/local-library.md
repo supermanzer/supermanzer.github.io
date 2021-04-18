@@ -32,6 +32,7 @@ Part of this project for me is the practice of extending the functionality of th
 
 - Nuxt <=> Django Authentication using Web Tokens via the DRF SimpleJWT and `@nuxt/auth` modules
 - Parsing of DRF `OPTIONS` JSON to dynamically build table headers and forms in Nuxt
+- Using a combined Django query annotations + static field approach to set copy status
 
 ## Future Work
 

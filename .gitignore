@@ -92,3 +92,6 @@ sw.*
 
 # Other config files
 .twitter_config.js
+
+# IDE files
+.vscode
