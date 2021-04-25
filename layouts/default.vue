@@ -4,11 +4,11 @@
     <v-main class="fh">
       <nuxt />
     </v-main>
-    <!--  <v-footer :absolute="true">
+    <v-footer :absolute="true" class="mt-8">
       <v-row justify="center" align="center">
         <span>&copy; 2020 C. Ryan Manzer</span>
       </v-row>
-    </v-footer> -->
+    </v-footer>
   </v-app>
 </template>
 
@@ -39,5 +39,7 @@ main {
     #a2a1dc 87%,
     #b5aee4 100%
   );
+  margin-bottom: 2em;
+  padding: 2em 0;
 }
 </style>
