@@ -1,5 +1,3 @@
-// Defining our settings for various navigation components
-
 export const state = () => ({
     settings: {
       drawer: false,
@@ -33,6 +31,11 @@ export const state = () => ({
         title: "Neat Stuff",
         to: "/excited",
       },
+      {
+        icon: 'mdi-book',
+        title: "Blog",
+        to: {name: 'blog'}
+      }
     ],
   });
   
@@ -59,4 +62,3 @@ export const state = () => ({
       return state.settings.drawer;
     },
   };
-  

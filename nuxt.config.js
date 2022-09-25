@@ -33,24 +33,9 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
-  generate: {
-    dir: 'docs'
-  },
-  /**
-   * Nuxt Content Configuration
-   * Content module configuration: https://go.nuxtjs.dev/config-content
-   */
-  content: {
-    nestedProperties: ['author.name'],
-    markdown: {
-      // remarkPlugins: [ 'remark-math'],
-      // rehypePlugins: ['rehype-mathjax']
-    }
-  },
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/text-utils.js'
+    '~plugins/text-utils.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -70,15 +55,15 @@ export default {
     '@nuxt/content',
   ],
 
-  
-  
+  // Content module configuration: https://go.nuxtjs.dev/config-content
+  content: {},
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss', '~/assets/gradients.scss'],
     treeShake: true,
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

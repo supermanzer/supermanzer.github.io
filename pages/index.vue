@@ -1,7 +1,7 @@
 <template>
   <div class="holder">
-     <transition name="fade">
-      <div v-show="showTitle" class="title fh"  align="" justify="center">
+    <transition name="fade">
+      <div v-show="showTitle" class="title fh" align="" justify="center">
         <v-row align="center" justify="center" class="">
           <v-col class="text-center" cols="8" dark>
             <h1 class="text-h1 mb-4 white--text">C. Ryan Manzer</h1>
@@ -23,29 +23,28 @@
         </v-row>
       </div>
     </transition>
-    </div>
+  </div>
 </template>
 
 <script>
-import HomeNav from '~/components/nav/HomeNav.vue'
+import HomeNav from "~/components/nav/HomeNav.vue";
 export default {
-    name: 'HomePage',
-    components: { HomeNav },
-    layout: "home_layout",
-    async asyncData({ $content }) {
-        const message = await $content("home", "welcome-message").fetch()
-
-        return {message}
-    },
-    data: () => ({
-        showTitle: false,
-        showMessage: false,
-    }),
-    mounted() {
-      this.triggerTitleMessage();
-    },
-    methods: {
-      triggerTitleMessage() {
+  name: "HomePage",
+  components: { HomeNav },
+  layout: "home_layout",
+  async asyncData({ $content }) {
+    const message = await $content("home", "welcome-message").fetch();
+    return { message };
+  },
+  data: () => ({
+    showTitle: false,
+    showMessage: false,
+  }),
+  mounted() {
+    this.triggerTitleMessage();
+  },
+  methods: {
+    triggerTitleMessage() {
       setInterval(() => {
         this.showTitle = true;
       }, 500);
@@ -62,7 +61,7 @@ export default {
       });
     },
   },
-}
+};
 </script>
 
 <style>
@@ -70,7 +69,7 @@ export default {
   background-image: linear-gradient(to right, #6a85b6 0%, #bac8e0 100%);
   color: white;
   margin-top: 1.5em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 </style>
 
@@ -83,14 +82,12 @@ export default {
     0.45
   ); /* Black color with 50% alpha/opacity */
 }
-
 /* SPACING - LAYOUT RULES */
 .welcome {
   padding: 2em;
   margin-top: 5em;
   letter-spacing: 1.2px;
 }
-
 .big-vert {
   margin-top: 20em;
   margin-bottom: 20em;

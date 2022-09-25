@@ -81,11 +81,11 @@ export default {
   },
   props: {
     dark: { type: Boolean, required: false, default: true },
+    clipped: { type: Boolean, required: false, default: true },
   },
   data() {
     return {
       drawer: false,
-      clipped: true,
       fixed: false,
       right: true,
       rightDrawer: false,

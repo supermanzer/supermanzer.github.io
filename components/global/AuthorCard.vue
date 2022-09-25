@@ -2,7 +2,7 @@
   <v-card class="mx-auto" nuxt :to="`/excited/author/${author.name}`">
     <v-list-item three-line>
       <v-list-item-content>
-        <div class="overline mb-5">{{header}}</div>
+        <div class="overline mb-5">{{ header }}</div>
         <v-list-item-title class="headline mb-2">
           {{ author.name }}
         </v-list-item-title>
@@ -20,7 +20,7 @@ export default {
   name: "AuthorCard",
   props: {
     author: { type: Object, required: true },
-    header: { type: String, required: false, default: "author"}
+    header: { type: String, required: false, default: "author" },
   },
 };
 </script>

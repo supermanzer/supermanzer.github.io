@@ -6,21 +6,20 @@
       src="/images/home/3.jpeg"
       gradient="to top, rgba(0,0,0, .1), rgba(0,0,0, .5)"
     >
-      <NavBarDrawer />
+      <nav-header :clipped="false" />
       <v-main class="">
         <nuxt />
       </v-main>
-
     </v-img>
   </v-app>
 </template>
 
 <script>
-import NavBarDrawer from "@/components/nav/NavDrawer";
+import NavHeader from "@/components/nav/NavHeader.vue";
 export default {
   name: "DefaultLayout",
   components: {
-    NavBarDrawer,
+    NavHeader,
   },
 };
 </script>
