@@ -2,7 +2,6 @@
 title: Interests
 description: The elements of technology that I find interesting.
 parallax_image: /images/parallax/3.jpeg
-
 ---
 
 I am interested in constructing software and solutions for a variety of topics. I don't have direct experience in all the tech or business topics but I'm curious and would like to learn more. Much of the software I have worked on both professionally and academically have focused on automating tedious and repetitive tasks.
@@ -26,4 +25,4 @@ For instance, I think it could be interesting to build labeled data sources and 
 
 ## Web Design
 
-I have almost no real experience in web design but, as I build out a site I want to be both attractive and functional, I find myself drawn into this topic.  I want to better understand how to develop a design palate, style my site so that it is relatively easy to make design changes that propagate through the site without a massive find/replace class string effort, and generally build a cohesive design pattern throughout the whole site while using styling to subtly indicate the type of content being viewed in different locations.  I will have to find some good resources and do some learning.
+I have almost no real experience in web design but, as I build out a site I want to be both attractive and functional, I find myself drawn into this topic. I want to better understand how to develop a design palate, style my site so that it is relatively easy to make design changes that propagate through the site without a massive find/replace class string effort, and generally build a cohesive design pattern throughout the whole site while using styling to subtly indicate the type of content being viewed in different locations. I will have to find some good resources and do some learning.

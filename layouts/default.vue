@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav-header />
-    <v-main>
+    <v-main :class="{ dark: dark }">
       <nuxt />
     </v-main>
     <v-footer dark :absolute="true" class="mt-8 py-6">
@@ -17,6 +17,11 @@ import NavHeader from "~/components/nav/NavHeader.vue";
 export default {
   name: "DefaultLayout",
   components: { NavHeader },
+  computed: {
+    dark() {
+      return this.$vuetify.theme.isDark;
+    },
+  },
 };
 </script>
 
@@ -25,13 +30,11 @@ footer {
   background: rgba(50, 50, 50, 0.5);
 }
 main {
-  background-image: linear-gradient(
-    180deg,
-    #5d9fff 0%,
-    #b8dcff 48%,
-    #6bbbff 100%
-  );
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
   margin-bottom: 2em;
   padding: 2em 0;
+}
+main.dark {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
 </style>

@@ -6,7 +6,7 @@
       src="/images/home/3.jpeg"
       gradient="to top, rgba(0,0,0, .1), rgba(0,0,0, .5)"
     >
-      <nav-header :clipped="false" />
+      <nav-header :clipped="false" :dark-mode="true" />
       <v-main class="">
         <nuxt />
       </v-main>

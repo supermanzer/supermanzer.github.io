@@ -4,7 +4,6 @@
       v-model="drawer"
       :clipped="clipped"
       app
-      dark
       fixed
       class="py-3"
     >
@@ -42,18 +41,15 @@
     </v-navigation-drawer>
     <transition name="fade-transition">
       <nav v-show="show">
-        <v-app-bar app :dark="dark" :clipped-left="clipped" elevate-on-scroll>
-          <v-app-bar-nav-icon
-            :class="textClassObject"
-            @click="drawer = !drawer"
-          ></v-app-bar-nav-icon>
-          <v-toolbar-title
-            :class="textClassObject"
-            class="text-uppercase mx-10"
-            to="/"
-            v-text="title"
-          >
+        <v-app-bar app :dark="isDark" :clipped-left="clipped" elevate-on-scroll>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-toolbar-title class="text-uppercase mx-10" to="/" v-text="title">
           </v-toolbar-title>
+          <!-- <v-switch
+            v-model="$vuetify.theme.isDark"
+            :label="`Dark mode: ${$vuetify.theme.isDark.toString()}`"
+          ></v-switch> -->
+          <theme-switcher-menu />
           <!-- <SnackBar /> -->
           <v-spacer></v-spacer>
           <div class="hidden-md-and-down">
@@ -73,14 +69,15 @@
 </template>
 
 <script>
+import ThemeSwitcherMenu from "./ThemeSwitcherMenu.vue";
 // import SnackBar from "@/components/nav/SnackBar";
 export default {
   name: "NavBarDrawer",
   components: {
-    // SnackBar,
+    ThemeSwitcherMenu,
   },
   props: {
-    dark: { type: Boolean, required: false, default: true },
+    darkMode: { type: Boolean, required: false, default: false },
     clipped: { type: Boolean, required: false, default: true },
   },
   data() {
@@ -99,6 +96,9 @@ export default {
     },
     show() {
       return this.$store.state.nav.settings.show;
+    },
+    isDark() {
+      return this.darkMode || this.$vuetify.theme.isDark;
     },
     textClassObject() {
       return {
