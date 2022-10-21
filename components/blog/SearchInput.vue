@@ -23,24 +23,24 @@
 export default {
   data() {
     return {
-      searchQuery: "",
+      searchQuery: '',
       articles: [],
-    };
+    }
   },
   watch: {
     async searchQuery(searchQuery) {
       if (!searchQuery) {
-        this.articles = [];
-        return;
+        this.articles = []
+        return
       }
-      this.articles = await this.$content("articles")
-        .only(["title", "slug"])
+      this.articles = await this.$content('blog')
+        .only(['title', 'slug'])
         .limit(6)
-        .search("title", searchQuery)
-        .fetch();
+        .search('title', searchQuery)
+        .fetch()
     },
   },
-};
+}
 </script>
 
 <style>

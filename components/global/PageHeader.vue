@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="d-flex justify-space-between white--text">
+    <v-row class="d-flex justify-space-between">
       <v-col cols="12" md="6" sm="12">
         <h1 class="text-h2 mb-4 mx-5" v-text="heading"></h1>
         <h3 class="subheading mx-5 mb-4" v-text="subheading"></h3>
@@ -14,12 +14,12 @@
 <script>
 export default {
   props: {
-    heading: { type: String, required: false, default: "Stuff" },
+    heading: { type: String, required: false, default: 'Stuff' },
     subheading: {
       type: String,
       required: false,
-      default: "Stuff is great. I wish I had more stuff",
+      default: 'Stuff is great. I wish I had more stuff',
     },
   },
-};
+}
 </script>

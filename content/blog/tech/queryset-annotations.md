@@ -7,7 +7,7 @@ published_to_twitter: false
 author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
-  image: "/images/supermanzer.jpeg"
+  image: '/images/supermanzer.jpeg'
 ---
 
 ## Situation
@@ -126,4 +126,5 @@ to just define the the calculation directly in the `get_queryset` method. Howeve
 Anyway, I have found Django queryset annotations to be something that makes me smile when seeking to provide more useful info for my end users so I thought I'd share.
 
 ## One More Example
-One of my projects is a Django powered web application to simulate a local library card catalog webite.  In this scenario I used Django's dynamic query annotations, bundled in some model `save()` methods, to set the value for a static field.  This approach reduces query complexity when the value hasn't changed and also abstracts the decision making for the correct value to set in a more readable and reusable way.  I worked it all out in a section of my slowly growing notes on the project.  You can take a look [here](https://supermanzer.github.io/DendronNotes/notes/c874cfd9-6e98-431b-a86a-b60d0cbf3a69.html).  In this note I'm describing how I want to control the `status` field of a particular copy of a book.
+
+One of my projects is a Django powered web application to simulate a local library card catalog website. In this scenario I used Django's dynamic query annotations, bundled in some model `save()` methods, to set the value for a static field. This approach reduces query complexity when the value hasn't changed and also abstracts the decision making for the correct value to set in a more readable and reusable way. I worked it all out in a section of my slowly growing notes on the project. You can take a look [here](https://supermanzer.github.io/DendronNotes/notes/c874cfd9-6e98-431b-a86a-b60d0cbf3a69.html). In this note I'm describing how I want to control the `status` field of a particular copy of a book.

@@ -1,34 +1,32 @@
 // Define custom gradient classes
 
-$deep-relief: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);
+$deep-relief: linear-gradient(-225deg, #7085b6 0%, #87a7d9 50%, #def3f8 100%);
 
+$fresh-oasis: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
 
-$fresh-oasis: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
-
-
-$sea-lord: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+$sea-lord: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%);
 
 $high-flight: linear-gradient(to right, #0acffe 0%, #495aff 100%);
 
-
-$space-shift: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
-
+$space-shift: linear-gradient(
+  60deg,
+  #3d3393 0%,
+  #2b76b9 37%,
+  #2cacd1 65%,
+  #35eb93 100%
+);
 
 $rich-metal: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
 
-
 $gb-february-ink: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-
 
 $heavy-rain: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 
-
 $winter-neva: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 
-
 .gb-header {
-    color: white;
-    background-image: $winter-neva;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+  color: white;
+  background-image: $winter-neva;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }

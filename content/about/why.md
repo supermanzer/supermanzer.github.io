@@ -2,7 +2,6 @@
 title: Why I Code
 description: What got my into coding
 parallax_image: /images/parallax/2.jpeg
-
 ---
 
 I got started coding, almost simultaneously, in two different contexts.
@@ -21,7 +20,8 @@ For my M.Sc. thesis, I focused on physical mechanisms' influence on coastal phyt
 
 In addition to the buoy reader project I mentioned, I plan to go through some of the modeling approaches I learned using Python as a way to increase my understanding of both scientific Python programming and the modeling methods that led me down this crazy coding rabbit hole.
 
-## Business Coding 
+## Business Coding
+
 Since I got my start coding in the workplace in order to replace tracking data through spreadsheets, it should be no surprise I found myself creating databases and database applications.
 
 I started in MS Access because

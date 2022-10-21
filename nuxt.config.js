@@ -24,34 +24,20 @@ export default {
       },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },  {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap',
-    },],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
-  generate: {
-    dir: 'docs'
-  },
-  /**
-   * Nuxt Content Configuration
-   * Content module configuration: https://go.nuxtjs.dev/config-content
-   */
-  content: {
-    nestedProperties: ['author.name'],
-    markdown: {
-      // remarkPlugins: [ 'remark-math'],
-      // rehypePlugins: ['rehype-mathjax']
-    }
-  },
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/text-utils.js'
-  ],
+  plugins: ['~plugins/text-utils.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -59,7 +45,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
@@ -70,15 +56,15 @@ export default {
     '@nuxt/content',
   ],
 
-  
-  
+  // Content module configuration: https://go.nuxtjs.dev/config-content
+  content: {},
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss', '~/assets/gradients.scss'],
     treeShake: true,
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

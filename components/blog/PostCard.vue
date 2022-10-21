@@ -2,7 +2,7 @@
   <v-card
     shaped
     nuxt
-    :to="{ name: 'excited-slug', params: { slug: article.slug } }"
+    :to="{ name: 'blog-slug', params: { slug: article.slug } }"
   >
     <v-list-item three-line>
       <v-list-item-content>
@@ -27,15 +27,15 @@
 
 <script>
 export default {
-  name: "PostCard",
+  name: 'PostCard',
   props: {
     article: { type: Object, required: true },
   },
   computed: {
     createdAt() {
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      return new Date(this.article.createdAt).toLocaleDateString("en", options);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(this.article.createdAt).toLocaleDateString('en', options)
     },
   },
-};
+}
 </script>

@@ -7,7 +7,7 @@ published_to_twitter: false
 author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
-  image: "/images/supermanzer.jpeg"
+  image: '/images/supermanzer.jpeg'
 ---
 
 ### My Situation
@@ -22,8 +22,8 @@ had to learn some new techniques to solve the problems I want to solve while pro
 ### My Problem
 
 For the past few years, the applications I have been building have mostly been concerned with overcoming the inefficiencies of the ERP system my company uses.
-I'm not going to name names but it wasn't the greatest. Thankfully, it did use a faily straightforward PostgreSQL back-end that I could connect to and execute
-queries for things like inserting orders in large batches. Incidentally [PostgreSQL](https://www.postgresql.org/) is my hands down favorite RDMS and with the inclusion of a fully functional JSON Binary field type I think even NoSQL devotees can find plenty to love about it.
+I'm not going to name names but it wasn't the greatest. Thankfully, it did use a fairly straightforward PostgreSQL back-end that I could connect to and execute
+queries for things like inserting orders in large batches. Incidentally [PostgreSQL](https://www.postgresql.org/) is my hands down favorite RDBMS and with the inclusion of a fully functional JSON Binary field type I think even NoSQL devotees can find plenty to love about it.
 
 <img src="https://www.acunetix.com/wp-content/uploads/2019/06/slow.png" width=400>
 
@@ -49,7 +49,7 @@ Now I was able to bundle up all the file processing actions into a task. When my
 
 ### The Exciting Part - Workflows
 
-Well then things got really interesting and that gets us to what I'm so excited about that I am spending a Sunday morning in my jammies writing in a markdown file. As part of a transition to new ERP, I was tasked with turning thousands of automatically generated purchase orders (along with Bill of Material records) into manufacturing schedules. These records were acccessible only via a REST API and, unfortunately, the service providing this API was not always super stable. While outages usually only lasted a second, it was enough to trainwreck the entire process (since I had written my tasks as long, involved functions). This made me reconsider my design and I found exactly what I needed in the Celery documentation on [Workflows](https://docs.celeryproject.org/en/stable/userguide/canvas.html), referred to in Celery as a Canvas API.
+Well then things got really interesting and that gets us to what I'm so excited about that I am spending a Sunday morning in my jammies writing in a markdown file. As part of a transition to new ERP, I was tasked with turning thousands of automatically generated purchase orders (along with Bill of Material records) into manufacturing schedules. These records were accessible only via a REST API and, unfortunately, the service providing this API was not always super stable. While outages usually only lasted a second, it was enough to train wreck the entire process (since I had written my tasks as long, involved functions). This made me reconsider my design and I found exactly what I needed in the Celery documentation on [Workflows](https://docs.celeryproject.org/en/stable/userguide/canvas.html), referred to in Celery as a Canvas API.
 
 I had known that a good task design is small and self contained, like a good function, but I didn't know how I would keep track of what remained to be processed and how I would ensure that all the records that needed to be related to each other were. That's when I realized what I could do with `groups` and `chains`. A `group` is a set of tasks that are processed in parallel.
 
@@ -62,7 +62,7 @@ def create_local_purchase_orders(data):
   return result
 ```
 
-This would work great for my purchase orders (which were independent of each other). For creating related records from the Bill of Materials data (product + compoonent records), the `chain` object was just what I was looking for. Using this feature you can create a series of tasks to be executed sequentially and even have the results returned from one task sent as an input into the following one. In fact, I could combine the `group` and `chain` approachs when processing my Bill of Material data.
+This would work great for my purchase orders (which were independent of each other). For creating related records from the Bill of Materials data (product + compoonent records), the `chain` object was just what I was looking for. Using this feature you can create a series of tasks to be executed sequentially and even have the results returned from one task sent as an input into the following one. In fact, I could combine the `group` and `chain` approaches when processing my Bill of Material data.
 
 ```python
 @app.task(bind=True, max_retries=5)
@@ -89,12 +89,12 @@ def group_boms(list_of_bom_data):
 
 #### How This Helps
 
-As I mentioned at the start of this section, one of the main problems I ran into was the API would sometimes be unavailable for a second and that would trainwreck the processing of hundreds of product records. Well, in addition to being able to radically simplify what was a single function definition that stretched over dozens of lines to three simple, mostly one-line functions, I was able to include a very easy to configure rety policy.
+As I mentioned at the start of this section, one of the main problems I ran into was the API would sometimes be unavailable for a second and that would train wreck the processing of hundreds of product records. Well, in addition to being able to radically simplify what was a single function definition that stretched over dozens of lines to three simple, mostly one-line functions, I was able to include a very easy to configure retry policy.
 
 Take a look at the first task function `fetch_bom`. This is calling another function (not defined) that encapsulates getting the correct URL, performing the authentication, making the HTTP request, and returning the data. The task is written such that, in the event of a failure, it will wait 2 seconds and then retry itself (while also keeping track of the exception that was triggered). I've also included a `max_retries` argument to prevent this task from going into an endless loop of pinging the API if it ever goes down for some serious reason.
 
 #### What About Database Validation?
 
-Oh yeah! Well, once I got hip to all this gouping and chaining, my PostgreSQL back-end was having records INSERT'd and UPDATE'd faster than I've ever dealt with previously. What I quickly found out was that some of the validation rules I had written in Python weren't quick enough to catch records that violated those rules before they were written to the DB. At first this was frustrating and for a little while I went back to a more sequential approach. However, I did some more reading about [Django model definiation](https://docs.djangoproject.com/en/3.1/topics/db/models/) and where to specify record constraints so that they were applied at the DB layer. In the process I wound up learning more about how to utilize the [Django database API](https://docs.djangoproject.com/en/3.1/topics/db/queries/) to move more of the record processing and annotation to the DB layer as well.
+Oh yeah! Well, once I got hip to all this grouping and chaining, my PostgreSQL back-end was having records INSERT'd and UPDATE'd faster than I've ever dealt with previously. What I quickly found out was that some of the validation rules I had written in Python weren't quick enough to catch records that violated those rules before they were written to the DB. At first this was frustrating and for a little while I went back to a more sequential approach. However, I did some more reading about [Django model definition](https://docs.djangoproject.com/en/3.1/topics/db/models/) and where to specify record constraints so that they were applied at the DB layer. In the process I wound up learning more about how to utilize the [Django database API](https://docs.djangoproject.com/en/3.1/topics/db/queries/) to move more of the record processing and annotation to the DB layer as well.
 
 All in all, this has made my Django applications more robust, more performant, and provided an opportunity to better understand some of the layers of my tech stack I tend to just take for granted.

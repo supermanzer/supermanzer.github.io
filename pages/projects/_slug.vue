@@ -19,12 +19,15 @@
                 ></v-list-item-title>
                 <v-list-item-subtitle>
                   <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
-                      <span v-bind="attrs" class="white--text" v-on="on" >
+                    <template #activator="{ on, attrs }">
+                      <span v-bind="attrs" class="white--text" v-on="on">
                         Lead: {{ project.lead.name }}
                       </span>
                     </template>
-                    <author-card :author="project.lead" header="lead developer" />
+                    <author-card
+                      :author="project.lead"
+                      header="lead developer"
+                    />
                   </v-menu>
                 </v-list-item-subtitle>
               </v-list-item-content>
@@ -37,7 +40,6 @@
                 color="white"
                 outlined
                 :href="project.github_link"
-                
                 class="block-btn"
               >
                 <v-icon>mdi-github</v-icon>
@@ -73,7 +75,7 @@
                   class="block-btn"
                 >
                   <v-icon v-text="link.icon"></v-icon>
-                  {{link.text}}
+                  {{ link.text }}
                 </v-btn>
               </template>
             </div>
@@ -88,21 +90,22 @@
 </template>
 
 <script>
-import AuthorCard from '~/components/global/AuthorCard.vue';
+import AuthorCard from '~/components/global/AuthorCard.vue'
 
 export default {
-  name: "ProjectContent",
+  name: 'ProjectContent',
   components: { AuthorCard },
   async asyncData({ $content, params }) {
-    const project = await $content("projects", params.slug).fetch();
+    const project = await $content('projects', params.slug).fetch()
 
-    return { project };
+    return { project }
   },
-};
+}
 </script>
 
 <style scoped>
-.v-card__text >>> .nuxt-content h2 {
+/* stylelint-disable */
+.v-card__text :v-deep(.nuxt-content h2) {
   margin: 1em 0;
   padding: 1em 1em;
   line-height: 1.2;
@@ -113,11 +116,12 @@ export default {
     #def3f8 100%
   );
 }
-.v-card__text >>> div.nuxt-content {
+.v-card__text :v-deep(div.nuxt-content) {
   padding-bottom: 2rem;
   margin-bottom: 2rem;
 }
 .block-btn {
   margin-top: 1em;
 }
+/* stylelint-enable */
 </style>
