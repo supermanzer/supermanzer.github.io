@@ -18,23 +18,24 @@
 
 <script>
 export default {
-  name: "EmptyLayout",
-  layout: "empty",
+  name: 'EmptyLayout',
+  layout: 'empty',
   props: {
     error: {
       type: Object,
       default: null,
     },
   },
-};
+}
 </script>
 
 <style scoped>
 h1 {
   font-size: 20px;
 }
+
 .code-format {
   background-color: black;
-  color: rgb(8, 230, 8);
+  color: rgb(8 230 8);
 }
 </style>

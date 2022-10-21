@@ -8,7 +8,7 @@
   >
     <v-card-title class="text-uppercase d-flex justify-space-around">
       {{ project.title }}
-      <v-avatar size="48px" v-if="project.img">
+      <v-avatar v-if="project.img" size="48px">
         <v-img :src="project.img"></v-img>
       </v-avatar>
     </v-card-title>
@@ -17,7 +17,7 @@
 
     <v-card-actions class="bottom-actions">
       <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
+        <template #activator="{ on, attrs }">
           <v-btn
             v-if="hasLink('github')"
             icon
@@ -35,7 +35,7 @@
 
       <v-spacer></v-spacer>
       <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
+        <template #activator="{ on, attrs }">
           <v-btn
             text
             color="deep-purple accent-4"
@@ -57,8 +57,8 @@
 <script>
 export default {
   transition: {
-    name: "to-detail",
-    mode: "out-in",
+    name: 'to-detail',
+    mode: 'out-in',
     duration: 500,
   },
   props: {
@@ -66,15 +66,15 @@ export default {
   },
   computed: {
     projectUrl() {
-      return `projects/${this.project.id}`;
+      return `projects/${this.project.id}`
     },
   },
   methods: {
     hasLink(key) {
-      return Object.prototype.hasOwnProperty.call(this.project.links, key);
+      return Object.prototype.hasOwnProperty.call(this.project.links, key)
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -82,6 +82,6 @@ export default {
   position: absolute;
   bottom: 1rem;
   width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(0 0 0/ 15%);
 }
 </style>

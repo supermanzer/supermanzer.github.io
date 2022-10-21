@@ -11,7 +11,7 @@ links:
 lead:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
-  image: "/images/supermanzer.jpeg"
+  image: '/images/supermanzer.jpeg'
 ---
 
 ## Problem

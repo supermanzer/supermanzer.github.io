@@ -27,41 +27,41 @@
 </template>
 
 <script>
-import HomeNav from "~/components/nav/HomeNav.vue";
+import HomeNav from '~/components/nav/HomeNav.vue'
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   components: { HomeNav },
-  layout: "home_layout",
+  layout: 'home_layout',
   async asyncData({ $content }) {
-    const message = await $content("home", "welcome-message").fetch();
-    return { message };
+    const message = await $content('home', 'welcome-message').fetch()
+    return { message }
   },
   data: () => ({
     showTitle: false,
     showMessage: false,
   }),
   mounted() {
-    this.triggerTitleMessage();
+    this.triggerTitleMessage()
   },
   methods: {
     triggerTitleMessage() {
       setInterval(() => {
-        this.showTitle = true;
-      }, 500);
+        this.showTitle = true
+      }, 500)
       setInterval(() => {
-        this.showMessage = true;
-      }, 1500);
+        this.showMessage = true
+      }, 1500)
       setInterval(() => {
-        this.showPosts = true;
-      }, 3000);
+        this.showPosts = true
+      }, 3000)
     },
     scrollListen() {
-      document.addEventListener("scroll", () => {
-        document.documentElement.dataset.scroll = window.scrollY;
-      });
+      document.addEventListener('scroll', () => {
+        document.documentElement.dataset.scroll = window.scrollY
+      })
     },
   },
-};
+}
 </script>
 
 <style>
@@ -75,37 +75,39 @@ export default {
 
 <style lang="css" scoped>
 .bg-black {
-  background: rgba(
-    0.2,
-    0.2,
-    0.2,
-    0.45
-  ); /* Black color with 50% alpha/opacity */
+  background: rgba(0.2 0.2 0.2 / 45%); /* Black color with 50% alpha/opacity */
 }
+
 /* SPACING - LAYOUT RULES */
 .welcome {
   padding: 2em;
   margin-top: 5em;
   letter-spacing: 1.2px;
 }
+
 .big-vert {
   margin-top: 20em;
   margin-bottom: 20em;
 }
+
 .fh {
   height: 100%;
 }
+
 .holder {
   height: 100%;
   margin-top: 12em;
 }
+
 /* TRANSITION RULES */
 .fade-enter {
   opacity: 0;
 }
+
 .fade-enter-active {
   transition: opacity 2s ease-in;
 }
+
 .fade-enter-to {
   opacity: 1;
 }

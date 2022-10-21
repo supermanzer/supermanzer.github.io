@@ -19,28 +19,28 @@
 
 <script>
 export default {
-  name: "HomeNav",
+  name: 'HomeNav',
   props: {
     dark: { type: Boolean, required: false, default: true },
   },
   computed: {
     links() {
-      return this.$store.state.nav.links;
+      return this.$store.state.nav.links
     },
     btnClassObject() {
       return {
-        "white--text": this.dark,
-      };
+        'white--text': this.dark,
+      }
     },
   },
   methods: {
     divClassObject(i) {
       return {
-        "right-border": i < this.links.length - 1,
-      };
+        'right-border': i < this.links.length - 1,
+      }
     },
   },
-};
+}
 </script>
 
 <style>

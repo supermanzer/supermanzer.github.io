@@ -27,15 +27,15 @@
 
 <script>
 export default {
-  name: "PostCard",
+  name: 'PostCard',
   props: {
     article: { type: Object, required: true },
   },
   computed: {
     createdAt() {
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      return new Date(this.article.createdAt).toLocaleDateString("en", options);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(this.article.createdAt).toLocaleDateString('en', options)
     },
   },
-};
+}
 </script>

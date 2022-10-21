@@ -6,7 +6,7 @@
       src="/images/home/3.jpeg"
       gradient="to top, rgba(0,0,0, .1), rgba(0,0,0, .5)"
     >
-      <nav-header :clipped="false" :dark-mode="true" />
+      <nav-header :clipped="false" :dark-mode="true" :temporary="true" />
       <v-main class="">
         <nuxt />
       </v-main>
@@ -15,19 +15,20 @@
 </template>
 
 <script>
-import NavHeader from "@/components/nav/NavHeader.vue";
+import NavHeader from '@/components/nav/NavHeader.vue'
 export default {
-  name: "DefaultLayout",
+  name: 'DefaultLayout',
   components: {
     NavHeader,
   },
-};
+}
 </script>
 
 <style>
 footer {
-  background: rgba(50, 50, 50, 0.5);
+  background: rgba(50 50 50 / 50%);
 }
+
 main {
   height: 100%;
 }

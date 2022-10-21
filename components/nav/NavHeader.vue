@@ -6,6 +6,10 @@
       app
       fixed
       class="py-3"
+      :class="{ semi_op: temporary }"
+      :dark="isDark"
+      :temporary="temporary"
+      :hide-overlay="temporary"
     >
       <v-row class="mt-15" align="center" justify="center">
         <v-col cols="12" align="center">
@@ -45,10 +49,6 @@
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase mx-10" to="/" v-text="title">
           </v-toolbar-title>
-          <!-- <v-switch
-            v-model="$vuetify.theme.isDark"
-            :label="`Dark mode: ${$vuetify.theme.isDark.toString()}`"
-          ></v-switch> -->
           <theme-switcher-menu />
           <!-- <SnackBar /> -->
           <v-spacer></v-spacer>
@@ -69,16 +69,17 @@
 </template>
 
 <script>
-import ThemeSwitcherMenu from "./ThemeSwitcherMenu.vue";
+import ThemeSwitcherMenu from './ThemeSwitcherMenu.vue'
 // import SnackBar from "@/components/nav/SnackBar";
 export default {
-  name: "NavBarDrawer",
+  name: 'NavBarDrawer',
   components: {
     ThemeSwitcherMenu,
   },
   props: {
     darkMode: { type: Boolean, required: false, default: false },
     clipped: { type: Boolean, required: false, default: true },
+    temporary: { type: Boolean, required: false, default: false },
   },
   data() {
     return {
@@ -86,41 +87,55 @@ export default {
       fixed: false,
       right: true,
       rightDrawer: false,
-      title: "Supermanzer",
+      title: 'Supermanzer',
       miniVariant: false,
-    };
+    }
   },
   computed: {
     navLinks() {
-      return this.$store.state.nav.links;
+      return this.$store.state.nav.links
     },
     show() {
-      return this.$store.state.nav.settings.show;
+      return this.$store.state.nav.settings.show
     },
     isDark() {
-      return this.darkMode || this.$vuetify.theme.isDark;
+      return this.darkMode || this.$vuetify.theme.isDark
     },
     textClassObject() {
       return {
-        "grey--text text--lighten-2": this.dark,
-      };
+        'grey--text text--lighten-2': this.dark,
+      }
+    },
+    overlayOpacity() {
+      return this.temporary ? 0.1 : undefined
+    },
+    overlayColor() {
+      return this.temporary ? 'white' : undefined
     },
   },
-};
+}
 </script>
 
 <style>
 /* I HATE doing the whole !important thing but I couldn't find another way - Look into this */
+/* stylelint-disable */
 header.v-app-bar--hide-shadow {
-  background-color: rgba(50, 50, 50, 0) !important;
-  border-color: rgba(50, 50, 50, 0) !important;
+  background-color: rgba(50 50 50 / 0%) !important;
+  border-color: rgba(50 50 50 /0%) !important;
 }
+
 header.v-app-bar--is-scrolled {
-  background-color: rgba(50, 50, 50, 0.7) !important;
-  border-color: rgba(50, 50, 50, 0.7) !important;
+  background-color: rgba(50 50 50/ 70%) !important;
+  border-color: rgba(50 50 50 / 70%) !important;
   color: white !important;
 }
+
 header.v-app-bar--is-scrolled .v-btn {
   color: white !important;
 }
+
+.semi_op {
+  background: rgba(0 0 0/ 40%) !important;
+}
+/* stylelint-enable */
 </style>

@@ -19,7 +19,7 @@
                 ></v-list-item-title>
                 <v-list-item-subtitle>
                   <v-menu>
-                    <template v-slot:activator="{ on, attrs }">
+                    <template #activator="{ on, attrs }">
                       <span v-bind="attrs" class="white--text" v-on="on">
                         Lead: {{ project.lead.name }}
                       </span>
@@ -90,20 +90,21 @@
 </template>
 
 <script>
-import AuthorCard from "~/components/global/AuthorCard.vue";
+import AuthorCard from '~/components/global/AuthorCard.vue'
 
 export default {
-  name: "ProjectContent",
+  name: 'ProjectContent',
   components: { AuthorCard },
   async asyncData({ $content, params }) {
-    const project = await $content("projects", params.slug).fetch();
+    const project = await $content('projects', params.slug).fetch()
 
-    return { project };
+    return { project }
   },
-};
+}
 </script>
 
 <style scoped>
+/* stylelint-disable */
 .v-card__text :v-deep(.nuxt-content h2) {
   margin: 1em 0;
   padding: 1em 1em;
@@ -122,4 +123,5 @@ export default {
 .block-btn {
   margin-top: 1em;
 }
+/* stylelint-enable */
 </style>

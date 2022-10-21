@@ -25,9 +25,9 @@
 
 <script>
 export default {
-  name: "TableOfContents",
+  name: 'TableOfContents',
   props: {
     items: { type: Array, required: true },
   },
-};
+}
 </script>

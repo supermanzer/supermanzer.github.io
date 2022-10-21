@@ -17,10 +17,10 @@
 
 <script>
 export default {
-  name: "AuthorCard",
+  name: 'AuthorCard',
   props: {
     author: { type: Object, required: true },
-    header: { type: String, required: false, default: "author" },
+    header: { type: String, required: false, default: 'author' },
   },
-};
+}
 </script>

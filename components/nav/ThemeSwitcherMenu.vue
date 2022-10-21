@@ -1,14 +1,14 @@
 <template>
-  <v-menu
-    v-model="menu"
-    :close-on-content-click="false"
-    :nudge-width="200"
-    offset-y
-  >
-    <template v-slot:activator="{ on }">
-      <v-btn large icon v-on="on">
-        <v-icon size="30">mdi-palette</v-icon>
-      </v-btn>
+  <v-menu :close-on-content-click="false" :nudge-width="200" offset-y>
+    <template #activator="{ on: menu, attrs }">
+      <v-tooltip bottom>
+        <template #activator="{ on: tooltip }">
+          <v-btn large icon v-bind="attrs" v-on="{ ...tooltip, ...menu }">
+            <v-icon size="30">mdi-palette</v-icon>
+          </v-btn>
+        </template>
+        <span> Theme Switcher </span>
+      </v-tooltip>
     </template>
     <v-card>
       <v-container>
@@ -20,9 +20,6 @@
 
 <script>
 export default {
-  name: "ThemeSwitcherMenu",
-  data: () => ({
-    menu: false,
-  }),
-};
+  name: 'ThemeSwitcherMenu',
+}
 </script>

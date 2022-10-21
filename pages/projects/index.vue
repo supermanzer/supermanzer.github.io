@@ -14,17 +14,15 @@
 </template>
 
 <script>
-import ProjectCard from "@/components/projects/ProjectCard";
+import ProjectCard from '@/components/projects/ProjectCard'
 export default {
-  name: "ProjectCards",
+  name: 'ProjectCards',
   components: {
     ProjectCard,
   },
   async asyncData({ $content }) {
-    const projects = await $content("projects").fetch();
-    return { projects };
+    const projects = await $content('projects').fetch()
+    return { projects }
   },
-};
+}
 </script>
-
-<style></style>

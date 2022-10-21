@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import PageHeader from "~/components/global/PageHeader.vue";
+import PageHeader from '~/components/global/PageHeader.vue'
 export default {
-  name: "ProjectParent",
+  name: 'ProjectParent',
   components: { PageHeader },
   data: () => ({
-    heading: "My Projects",
-    subheading: "I like making stuff",
+    heading: 'My Projects',
+    subheading: 'I like making stuff',
   }),
   created() {
-    this.$store.commit("nav/SET_NAV_SHOW", true);
+    this.$store.commit('nav/SET_NAV_SHOW', true)
   },
-};
+}
 </script>

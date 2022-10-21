@@ -1,34 +1,34 @@
-import colors from "vuetify/es5/util/colors";
+import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - supermanzer",
-    title: "supermanzer",
+    titleTemplate: '%s - supermanzer',
+    title: 'supermanzer',
     htmlAttrs: {
-      lang: "en",
+      lang: 'en',
     },
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: "description",
-        name: "description",
-        content: "The personal website of Ryan Manzer",
+        hid: 'description',
+        name: 'description',
+        content: 'The personal website of Ryan Manzer',
       },
-      { name: "format-detection", content: "telephone=no" },
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap",
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap',
       },
     ],
   },
@@ -37,7 +37,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~plugins/text-utils.js"],
+  plugins: ['~plugins/text-utils.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -47,13 +47,13 @@ export default {
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    "@nuxtjs/vuetify",
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    "@nuxt/content",
+    '@nuxt/content',
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -61,7 +61,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ["~/assets/variables.scss", "~/assets/gradients.scss"],
+    customVariables: ['~/assets/variables.scss', '~/assets/gradients.scss'],
     treeShake: true,
     theme: {
       dark: true,
@@ -81,4 +81,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-};
+}

@@ -14,12 +14,12 @@
 <script>
 export default {
   props: {
-    heading: { type: String, required: false, default: "Stuff" },
+    heading: { type: String, required: false, default: 'Stuff' },
     subheading: {
       type: String,
       required: false,
-      default: "Stuff is great. I wish I had more stuff",
+      default: 'Stuff is great. I wish I had more stuff',
     },
   },
-};
+}
 </script>

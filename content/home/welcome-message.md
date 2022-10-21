@@ -4,7 +4,7 @@ description: Just saying hi
 author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
-  image: "/images/supermanzer.jpeg"
+  image: '/images/supermanzer.jpeg'
 ---
 
 ### Welcome friends
