@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{562:function(n,t,o){"use strict";o.r(t);var e=o(507),l={name:"BlogHome"},c=o(62),component=Object(c.a)(l,(function(){var n=this._self._c;return n(e.a,[n("p",{staticClass:"text-h1"},[this._v("Random Thoughts from a Random Dude")])])}),[],!1,null,null,null);t.default=component.exports}}]);
