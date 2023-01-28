@@ -8,6 +8,10 @@ author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
   image: '/images/supermanzer.jpeg'
+tags:
+  - tech
+  - celery
+  - python
 ---
 
 ### My Situation

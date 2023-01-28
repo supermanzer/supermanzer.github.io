@@ -1,10 +1,15 @@
 <template>
   <v-row align-center justify="center">
-    <div
+    <v-col
       v-for="(link, i) in links"
       :key="i"
       class="px-4"
       :class="divClassObject(i)"
+      cols="12"
+      sm="12"
+      md="4"
+      lg="3"
+      xl="2"
     >
       <v-btn
         text
@@ -13,7 +18,7 @@
         :to="link.to"
         v-text="link.title"
       ></v-btn>
-    </div>
+    </v-col>
   </v-row>
 </template>
 
@@ -36,7 +41,8 @@ export default {
   methods: {
     divClassObject(i) {
       return {
-        'right-border': i < this.links.length - 1,
+        'right-border':
+          i < this.links.length - 1 && this.$vuetify.breakpoint.mdAndUp,
       }
     },
   },
@@ -44,7 +50,7 @@ export default {
 </script>
 
 <style>
-div.right-border {
+.right-border {
   border-right: 2px white solid;
 }
 </style>

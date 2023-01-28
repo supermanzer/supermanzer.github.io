@@ -8,6 +8,10 @@ author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
   image: '/images/supermanzer.jpeg'
+tags:
+  - django
+  - tech
+  - python
 ---
 
 ## Situation
@@ -121,7 +125,7 @@ class FPRList(ListView):
 Well that was nifty but an astute reader might be asking "Why bother with the `model_annotations.py` file when you could just write the calculation in the `get_queryset` method?". Good question, I'm glad you asked!
 
 As we can see from our models defined earlier, the FinishedProductRun is the only model to which this annotation can apply since it's the only one with the required fields. Now if we only had this one list view then it would seem perfectly reasonable
-to just define the the calculation directly in the `get_queryset` method. However...it has been my experience applications tend to keep expanding. What if you need a separate list view to return specific subsets of our model? What if we need to use the `bulk_quantity` annotation on the related `finished_products` set for a specific BulkProductRun? Sure it's not hard to copy and paste a few times but what if we need to rename one of the fields involved? You can see how this can become a tangled mess really quickly. This is why, shortly after beginning to use annotations (and creating some of the problems I just described!), I took the approach of creating a `model_annotations.py` file where I store them. And, since there is nothing model specific about the annotations themselves, we could define annotations based on fields that exist on more than one model (`date_created` for example) and apply it when retrieving data from any of our models.
+to just define the the calculation directly in the `get_queryset` method. However...it has been my experience applications tend to keep expanding. What if you need a separate list view to return specific subsets of our model? What if we need to use the `bulk_quantity` annotation on the related `finished_products` set for a specific BulkProductRun? Sure it's not hard to copy and paste a few times but what if we need to rename one of the fields involved? You can see how this can become a tangled mess really quickly. This is why, shortly after beginning to use annotations (and creating some of the problems I just described), I took the approach of creating a `model_annotations.py` file where I store them. And, since there is nothing model specific about the annotations themselves, we could define annotations based on fields that exist on more than one model (`date_created` for example) and apply it when retrieving data from any of our models.
 
 Anyway, I have found Django queryset annotations to be something that makes me smile when seeking to provide more useful info for my end users so I thought I'd share.
 

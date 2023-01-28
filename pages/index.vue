@@ -4,7 +4,9 @@
       <div v-show="showTitle" class="title fh" align="" justify="center">
         <v-row align="center" justify="center" class="">
           <v-col class="text-center" cols="8" dark>
-            <h1 class="text-h1 mb-4 white--text">C. Ryan Manzer</h1>
+            <h1 class="text-md-h1 text-sm-h3 mb-4 white--text">
+              C. Ryan Manzer
+            </h1>
             <h4 class="subheading mb-3 white--text">
               Full stack software engineer, oceanographer, gentleman scientist
             </h4>
@@ -13,7 +15,7 @@
           </v-col>
         </v-row>
         <v-row align="center" justify="center">
-          <v-col cols="8">
+          <v-col cols="12" sm="12" md="8">
             <transition name="fade">
               <div v-show="showMessage" class="welcome white--text">
                 <nuxt-content :document="message"></nuxt-content>

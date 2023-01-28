@@ -9,19 +9,18 @@ author:
   name: Ryan Manzer
   bio: He puts the Manzer in Supermanzer
   image: '/images/supermanzer.jpeg'
+
+tags:
+  - tech
+  - docker
+  - traefik
 ---
 
 ### Traefik Routing and Sub-Domains
 
-<img src="https://doc.traefik.io/traefik/assets/img/traefik-architecture.png" width="600"/>
+<image-asset image="traefik-architecture.png" :width="700" class="my-4"></image-asset>
 
 From what I can tell, people like the reverse proxy and load balancer [Traefik](https://traefik.io/traefik/) for plenty of reasons. But this blog is about what **I'm** excited about so here is why I got so excited once I figured out how to integrate it into my tech stack. While there are many features that I'm excited to explore, the ones I'm going to detail below are what motivated me to spend valuable time learning how to integrate Traefik into my everyday tech stack.
-
-<info-box>
-  <template #info-box>
-    This is an auto-injected vue component in markdown using slots.  I'm just testing this feature out.  It's pretty dang cool!
-  </template>
-</info-box>
 
 ---
 
@@ -29,13 +28,13 @@ From what I can tell, people like the reverse proxy and load balancer [Traefik](
 
 While I'm still a fan of [NGINX](https://www.nginx.com/) and I actually use it as the web server in most of my `docker-compose` defined application stacks, I am in love with the dynamic routing in Traefik. Any time any one of the services I had mapped in an NGINX configuration was not available, it took the entire server down. With Traefik, I can spin up and down groups of Docker containers and, if they have the correct sets of labels attached, the routers and any middleware are added to the Traefik configuration within a second. No rebooting servers needed. Just check your handy dandy dashboard on port 8080 to make sure verything is spun up correctly.
 
-<img src="https://raw.githubusercontent.com/containous/traefik/v2.0/docs/content/assets/img/webui-dashboard.png" width=600>
+<image-asset image="webui-dashboard.png" :width="700" class="my-4"></image-asset>
 
 ---
 
 ### Sub-domain Routing - All Time Favorite Feature
 
-<img src="https://howto.wared.fr/wp-content/uploads/2020/05/traefik_docker.png" height=400>
+<image-asset image="traefik_docker.png" :width="700" class="my-4"></image-asset>
 
 My definite, all-time favorite feature of Traefik is the ability do route to different `docker-compose` application stacks using sub-domains. This includes the concept of using one specific Docker network just to link all the web-server containers in each application stack to the Traefik router. This means each DB container, server (Python, PHP, etc.) container, and any other nifty stuff can live in a local network just for the containers specified in each `docker-compose` file. One unexpected benefit has been my move from fully server-side rendered web applications (Django, Laravel) to a separating of back-end and front-end applications. Add REST APIs to the server-side, build out a front-end, and when I'm ready to make the swap I just change some labels in the `docker-compose` file and my users are routed to the new application design.
 

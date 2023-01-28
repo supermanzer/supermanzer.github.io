@@ -107,8 +107,8 @@ export default {
 /* stylelint-disable */
 .v-card__text :v-deep(.nuxt-content h2) {
   margin: 1em 0;
-  padding: 1em 1em;
-  line-height: 1.2;
+  padding: 0.7em;
+  line-height: 1.6;
   background-image: linear-gradient(
     135deg,
     #7085b6 0%,

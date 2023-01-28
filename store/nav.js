@@ -25,11 +25,11 @@ export const state = () => ({
       title: 'About',
       to: '/about',
     },
-    // {
-    //   icon: "mdi-book",
-    //   title: "Blog",
-    //   to: { name: "blog" },
-    // },
+    {
+      icon: 'mdi-book',
+      title: 'Blog',
+      to: { name: 'blog' },
+    },
   ],
 })
 

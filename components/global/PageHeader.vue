@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row class="d-flex justify-space-between">
-      <v-col cols="12" md="6" sm="12">
+      <v-col cols="12" md="12" lg="12" sm="12">
         <h1 class="text-h2 mb-4 mx-5" v-text="heading"></h1>
         <h3 class="subheading mx-5 mb-4" v-text="subheading"></h3>
       </v-col>
