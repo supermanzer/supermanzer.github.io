@@ -40,7 +40,6 @@ export default {
   async asyncData({ $content }) {
     const query = $content('blog', { deep: true })
       .only(['title', 'description', 'tags', 'createdAt', 'updatedAt', 'slug'])
-      .where({ title: { $ne: 'icon' } })
       .sortBy('createdAt', 'desc')
       .limit(5)
     const posts = await query.fetch()
@@ -82,9 +81,6 @@ export default {
     },
     async fetchPosts() {
       const query = this.$content('blog', { deep: true })
-        .where({
-          title: { $ne: 'icon' },
-        })
         .only([
           'title',
           'description',
