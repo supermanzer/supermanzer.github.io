@@ -92,7 +92,7 @@ export default {
         .sortBy('createdAt', 'desc')
         .limit(5)
       if (this.selectedTags.length > 0) {
-        query.params.where.tags = { $containsAny: this.selectedTags }
+        query.where({ tags: { $containsAny: this.selectedTags } })
       }
       this.posts = await query.fetch()
     },
