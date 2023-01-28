@@ -5,6 +5,8 @@
       label="Search Posts"
       prepend-inner-icon="mdi-text-search"
       autocomplete="off"
+      clearable
+      @click:clear="emitClear"
     ></v-text-field>
     <ul v-if="articles.length">
       <li v-for="article in articles" :key="article.slug">
@@ -33,11 +35,24 @@ export default {
         this.articles = []
         return
       }
-      this.articles = await this.$content('blog')
-        .only(['title', 'slug'])
+      const articles = await this.$content('blog')
+        .only([
+          'title',
+          'description',
+          'tags',
+          'createdAt',
+          'updatedAt',
+          'slug',
+        ])
         .limit(6)
         .search('title', searchQuery)
         .fetch()
+      this.$emit('searched', articles)
+    },
+  },
+  methods: {
+    emitClear() {
+      this.$emit('cleared')
     },
   },
 }

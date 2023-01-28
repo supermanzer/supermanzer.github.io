@@ -23,6 +23,8 @@ I completed Andrew Ng's [Intro to Machine Learning](https://www.coursera.org/lea
 
 For instance, I think it could be interesting to build labeled data sources and ML algorithms for nearshore coastal ecosystem events (like fish population levels, phytoplankton blooms, etc.). Natural scientists tend to prefer understanding the rules and mathematical relationships in their systems and then use this understanding to build predictive models. I think it might be useful, or at least point towards some topics that deserve more study.
 
+Another pet project of mine (long on the back burner) involves multiple ML areas of concern. You can read more about it in the description of my [Local Recipe Server project](/projects/local-recipe-server).
+
 ## Web Design
 
 I have almost no real experience in web design but, as I build out a site I want to be both attractive and functional, I find myself drawn into this topic. I want to better understand how to develop a design palate, style my site so that it is relatively easy to make design changes that propagate through the site without a massive find/replace class string effort, and generally build a cohesive design pattern throughout the whole site while using styling to subtly indicate the type of content being viewed in different locations. I will have to find some good resources and do some learning.

@@ -1,11 +1,15 @@
 <template>
-  <v-container>
-    <p class="text-h1">Random Thoughts from a Random Dude</p>
-  </v-container>
+  <BlogList :posts="posts" />
 </template>
 
 <script>
+import BlogList from '~/components/blog/BlogList.vue'
+
 export default {
-  name: 'BlogHome',
+  name: 'AllPostsList',
+  components: { BlogList },
+  props: {
+    posts: { type: Array, required: false, default: () => [] },
+  },
 }
 </script>
