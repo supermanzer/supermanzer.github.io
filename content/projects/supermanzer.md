@@ -16,6 +16,9 @@ lead:
   image: '/images/supermanzer.jpeg'
 ---
 
+## Update - 01/29/2023
+I've completed a basic redesign of my visual style and converted my past Excited section focused solely on specific tech to a more general purpose blog (still using Nuxt content).  Now I have decided the time is right to begin the migration to [Nuxt 3](https://nuxt.com/).  This is I think thea big change as it is going from Vue 2 to Vue 3.  While there is likely to be a lot of pain points given how different the entire API is, I think the benefits in terms of performance and functionality definitely outweigh the pain of performing the migration.  Fortunately for me, Debbie O'Brien wrote a [guide](https://debbie.codes/blog/migrating-nuxt2-nuxt3/) about her own migration journey.  Since her [tutorial](https://nuxtjs.org/tutorials/creating-blog-with-nuxt-content/) on using Nuxt Content to make a blog is what convinced me I could start taking this approach, I know I am in good hands.  I'm looking forward to finding out what changes I will have to make and what new opportunities this migration will offer me.
+
 ## Motivation
 
 I started this project because I wanted to create a personal website as well as become more familiar with the tools commonly used by front-end developers. I am aware that personal websites offer coders a good way to show off their skills as well as a fun space to try out new things. Also I've seen and appreciated the viewpoints of many software developers and I figured someone might actually find some of the stuff I've got to share useful. So far I have just been playing around with building basic components as well as trying to develop a coherent style approach.
