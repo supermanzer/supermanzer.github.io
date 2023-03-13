@@ -70,8 +70,8 @@ export default {
 .nuxt-content h2 {
   background-image: linear-gradient(to right, #6a85b6 0%, #bac8e0 100%);
   color: white;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin: 1.5em -0.4em 0.5em;
+  padding: 0.2em;
 }
 </style>
 
