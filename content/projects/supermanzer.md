@@ -16,8 +16,15 @@ lead:
   image: '/images/supermanzer.jpeg'
 ---
 
+## Update - 03/18/2023
+
+The upgrade to Nuxt 3 is proving to be non-trivial. In particular I am having difficulty replecating my custom font and styling options that I built into my Veutify 2 components in Vuetify 3 (although the different way Nuxt content behaves is making some of my custom functionality difficult). For the most part this is minor changes and does not impact overall functionality. However, I built this site explicitly for spending more time working on the details of my desired user interface. I will continue to plug away in a separate branch and not merge until I've got something that I'm happy with.
+
+In the meantime I am focusing on building out a section of this site for displaying my photography.
+
 ## Update - 01/29/2023
-I've completed a basic redesign of my visual style and converted my past Excited section focused solely on specific tech to a more general purpose blog (still using Nuxt content).  Now I have decided the time is right to begin the migration to [Nuxt 3](https://nuxt.com/).  This is I think thea big change as it is going from Vue 2 to Vue 3.  While there is likely to be a lot of pain points given how different the entire API is, I think the benefits in terms of performance and functionality definitely outweigh the pain of performing the migration.  Fortunately for me, Debbie O'Brien wrote a [guide](https://debbie.codes/blog/migrating-nuxt2-nuxt3/) about her own migration journey.  Since her [tutorial](https://nuxtjs.org/tutorials/creating-blog-with-nuxt-content/) on using Nuxt Content to make a blog is what convinced me I could start taking this approach, I know I am in good hands.  I'm looking forward to finding out what changes I will have to make and what new opportunities this migration will offer me.
+
+I've completed a basic redesign of my visual style and converted my past Excited section focused solely on specific tech to a more general purpose blog (still using Nuxt content). Now I have decided the time is right to begin the migration to [Nuxt 3](https://nuxt.com/). This is I think thea big change as it is going from Vue 2 to Vue 3. While there is likely to be a lot of pain points given how different the entire API is, I think the benefits in terms of performance and functionality definitely outweigh the pain of performing the migration. Fortunately for me, Debbie O'Brien wrote a [guide](https://debbie.codes/blog/migrating-nuxt2-nuxt3/) about her own migration journey. Since her [tutorial](https://nuxtjs.org/tutorials/creating-blog-with-nuxt-content/) on using Nuxt Content to make a blog is what convinced me I could start taking this approach, I know I am in good hands. I'm looking forward to finding out what changes I will have to make and what new opportunities this migration will offer me.
 
 ## Motivation
 

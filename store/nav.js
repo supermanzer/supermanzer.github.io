@@ -30,6 +30,11 @@ export const state = () => ({
       title: 'Blog',
       to: { name: 'blog' },
     },
+    {
+      icon: 'mdi-photo-camera-outline',
+      title: 'Photos',
+      to: { name: 'photos' },
+    },
   ],
 })
 
