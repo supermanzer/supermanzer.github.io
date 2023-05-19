@@ -1,13 +1,5 @@
 <template>
-  <v-card
-    shaped
-    nuxt
-    width="750px"
-    :to="{
-      name: 'blog-slug',
-      params: { slug: article.slug },
-    }"
-  >
+  <v-card shaped nuxt width="750px" :to="toObject">
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-5 d-flex justify-space-between">
@@ -62,6 +54,11 @@ export default {
         'en',
         this.dateFormat
       )
+    },
+    toObject() {
+      const name = `${this.$route.name}-slug`
+      const params = { slug: this.article.slug }
+      return { name, params }
     },
   },
 }

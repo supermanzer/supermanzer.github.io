@@ -71,7 +71,10 @@ export default {
   },
   methods: {
     hasLink(key) {
-      return Object.prototype.hasOwnProperty.call(this.project.links, key)
+      if (this.project.links) {
+        return Object.prototype.hasOwnProperty.call(this.project.links, key)
+      }
+      return false
     },
   },
 }

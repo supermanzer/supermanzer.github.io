@@ -11,5 +11,6 @@
   },
   "[vue]": {
     "editor.formatOnSave": true
-  }
+  },
+  "cSpell.words": ["dendron", "nuxt", "pypi", "Supermanzer"]
 }

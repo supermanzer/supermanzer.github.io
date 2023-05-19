@@ -66,16 +66,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="css" scoped>
 .nuxt-content h2 {
   background-image: linear-gradient(to right, #6a85b6 0%, #bac8e0 100%);
   color: white;
   margin: 1.5em -0.4em 0.5em;
   padding: 0.2em;
 }
-</style>
 
-<style lang="css" scoped>
 .bg-black {
   background: rgba(0.2 0.2 0.2 / 45%); /* Black color with 50% alpha/opacity */
 }
