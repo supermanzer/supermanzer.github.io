@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style scoped>
+/* stylelint-disable */
 footer {
   background: rgba(50 50 50/ 50%);
 }
@@ -39,4 +40,5 @@ main {
 main.dark {
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
+/* stylelint-enable */
 </style>

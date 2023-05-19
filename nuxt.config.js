@@ -32,6 +32,17 @@ export default {
       },
     ],
   },
+  // Router configuration
+  // https://nuxtjs.org/docs/configuration-glossary/configuration-router/
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'blog',
+        path: '/blog/*',
+        component: resolve(__dirname, 'pages/blog/_slug.vue'),
+      })
+    },
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
