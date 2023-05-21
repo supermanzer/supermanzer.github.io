@@ -26,9 +26,14 @@ export const state = () => ({
       to: '/about',
     },
     {
+      icon: 'mdi-open-book',
+      title: 'Blog',
+      to: { name: 'blog' },
+    },
+    {
       icon: '',
-      title: 'Ramblings',
-      to: { name: 'ramblings' },
+      title: 'Thoughts',
+      to: { name: 'thoughts' },
     },
   ],
 })

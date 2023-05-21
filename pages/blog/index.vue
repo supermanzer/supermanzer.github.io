@@ -1,15 +1,25 @@
 <template>
-  <BlogList :posts="posts" />
+  <v-container>
+    <PageHeader :heading="heading" :subheading="subheading" />
+    <BlogList :posts="posts" />
+  </v-container>
 </template>
 
 <script>
-import BlogList from '~/components/blog/BlogList.vue'
-
+import PageHeader from '~/components/global/PageHeader.vue'
 export default {
-  name: 'AllPostsList',
-  components: { BlogList },
-  props: {
-    posts: { type: Array, required: false, default: () => [] },
+  name: 'ManzerBlog',
+  components: { PageHeader },
+  async asyncData({ $content }) {
+    const posts = await $content('blog').fetch()
+    return { posts }
+  },
+  data: () => ({
+    heading: 'Random thoughts from a random dude',
+    subheading: 'I like talking about stuff',
+  }),
+  created() {
+    this.$store.commit('nav/SET_NAV_SHOW', true)
   },
 }
 </script>
