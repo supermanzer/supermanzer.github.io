@@ -29,7 +29,7 @@ For the past few years, the applications I have been building have mostly been c
 I'm not going to name names but it wasn't the greatest. Thankfully, it did use a fairly straightforward PostgreSQL back-end that I could connect to and execute
 queries for things like inserting orders in large batches. Incidentally [PostgreSQL](https://www.postgresql.org/) is my hands down favorite RDBMS and with the inclusion of a fully functional JSON Binary field type I think even NoSQL devotees can find plenty to love about it.
 
-<img src="https://www.acunetix.com/wp-content/uploads/2019/06/slow.png" width=400>
+<img src="http://clipart-library.com/image_gallery/367104.jpg" width=400>
 
 Anyway, the ERP back-end ran pretty dang slow like (1-5 seconds for a basic SELECT with ~10K records). My most used application processed reconciliation files
 from Amazon, turned them into aggregated orders (by state for tax purposes), and wrote the orders and lines into the ERP. Back when we first started the number
@@ -43,7 +43,7 @@ I became aware of [Celery](https://docs.celeryproject.org/en/stable/) when I sta
 
 For those of you not familiar but curious I would highly encourage you to read the documentation linked above. However just to get everyone on the same page, Celery allows you to offload some of the computational work of an application to worker processes that process these tasks asynchronously while allowing your application to respond back the user in a timely manner. Apps write tasks (with signatures detailing inputs and such) to message broker(s) (RabbitMQ in this case) and a worker process grabs the task signature and gets to work. In addition to getting triggered via a user request, you can aslo schedule tasks using `beat-scheduler` in Celery. This has been a huge help to me running both high frequency API polling and also periodic maintenance functions in my applications.
 
-<img src="https://www.oreilly.com/library/view/learn-web-development/9781789953299/assets/857bb6b8-e872-410f-8a68-fd4e3ebb34ad.png" width=500>
+<img src="https://user-images.githubusercontent.com/7131058/123284355-a0032900-d525-11eb-9a9d-360d38760069.png" width=500>
 
 In fact, by installing a module called `django-beat-scheduler` I was able to create `crontab` like schedules for any task I wanted directly in the default Django admin interface. Anyone working across multiple development environments and version control will understand how much easier it makes your life to be able to do something like that without modifying any actual code.
 

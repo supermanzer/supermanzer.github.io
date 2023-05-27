@@ -1,7 +1,7 @@
 ---
 title: Integrating Photography with Web Dev
 description: Taking my budding new hobby of photography beyond Instagram by building my own photo gallery.
-img: https://img.stackshare.io/service/1075/celery.png
+img: https://t4.ftcdn.net/jpg/04/96/47/13/360_F_496471319_DbtjoUvKqyy2e9OfgBnK5mm2AXhKpa9m.jpg
 published_to_twitter: false
 author:
   name: Ryan Manzer

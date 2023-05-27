@@ -16,8 +16,8 @@ export default {
     return { posts }
   },
   data: () => ({
-    heading: 'My Random Ramblings',
-    subheading: 'I like talking about stuff',
+    heading: 'Stuff I think about',
+    subheading: 'I like thinking about stuff',
   }),
   created() {
     this.$store.commit('nav/SET_NAV_SHOW', true)
