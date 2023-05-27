@@ -1,128 +1,85 @@
 <template>
   <v-container grid-list-lg>
-    <!-- <p class="text-h1">Hi</p> -->
-    <v-card class="mx-auto mb-12" max-width="1200">
-      <v-img
-        v-if="project.card_img"
-        :src="project.card_img"
-        class="white--text align-end pa-2"
-        height="400"
-        gradient="to top, rgba(50,50,50, 0.7), rgba(50,50,50,0.1)"
-      >
-        <v-row class="d-flex justify-space-between">
-          <v-col cols="12" sm="12" md="6">
-            <v-list-item three-line>
-              <v-list-item-content>
-                <span class="overline mb-4 white--text">Project</span>
-                <v-list-item-title class="headline mb-2 white--text">{{
-                  project.title
-                }}</v-list-item-title>
-                <v-list-item-subtitle>
-                  <v-menu>
-                    <template #activator="{ on, attrs }">
-                      <span v-bind="attrs" class="white--text" v-on="on">
-                        Lead: {{ project.lead.name }}
-                      </span>
-                    </template>
-                    <author-card
-                      :author="project.lead"
-                      header="lead developer"
-                    />
-                  </v-menu>
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-col>
-          <v-col cols="12" sm="12" md="6" class="d-flex justify-end align-end">
-            <div class="d-flex flex-column">
-              <v-btn
-                v-if="project.github_link"
-                color="white"
-                outlined
-                :href="project.github_link"
-                class="block-btn"
-              >
-                <v-icon>mdi-github</v-icon>
-                View On Github
-              </v-btn>
-              <v-btn
-                v-if="project.dendron_link"
-                color="white"
-                outlined
-                :href="project.dendron_link"
-                class="block-btn"
-              >
-                <v-icon>mdi-source-branch</v-icon>
-                View Dendron Notes
-              </v-btn>
-              <v-btn
-                v-if="project.pypi_link"
-                color="white"
-                outlined
-                :href="project.pypi_link"
-                class="block-btn"
-              >
-                <v-icon>mdi-language-python</v-icon>
-                View on PyPI
-              </v-btn>
-              <template v-if="project.links">
-                <v-btn
-                  v-for="link in project.links"
-                  :key="link.text"
-                  color="white"
-                  outlined
-                  :href="link.url"
-                  class="block-btn"
-                >
-                  <v-icon>{{ link.icon }}</v-icon>
-                  {{ link.text }}
-                </v-btn>
-              </template>
+    <v-row class="mx-5">
+      <v-col cols="12" lg="3">
+        <AuthorCard :author="article.author" class="mt-10" />
+        <TableOfContents :items="article.toc" class="mt-10 sticky-toc" />
+      </v-col>
+      <v-col cols="12" lg="9">
+        <v-card>
+          <article class="ma-10">
+            <p id="title" class="main-title">{{ article.title }}</p>
+            <p class="subheading">{{ article.description }}</p>
+            <div class="d-flex justify-space-around">
+              <span>Created: {{ formatDate(article.createdAt) }}</span>
+              <span>Updated: {{ formatDate(article.updatedAt) }}</span>
             </div>
-          </v-col>
-        </v-row>
-      </v-img>
-      <v-card-text>
-        <nuxt-content :document="project"></nuxt-content>
-      </v-card-text>
-    </v-card>
+            <v-divider class="mb-10"></v-divider>
+            <nuxt-content :document="article"></nuxt-content>
+          </article>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import AuthorCard from '~/components/global/AuthorCard.vue'
+import TableOfContents from '~/components/blog/TableOfContents.vue'
 
 export default {
   name: 'RamblingContent',
-  components: { AuthorCard },
+  components: { AuthorCard, TableOfContents },
   async asyncData({ $content, params }) {
-    const project = await $content('blog', params.slug).fetch()
-    return { project }
+    const article = await $content('blog', params.slug).fetch()
+    return { article }
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('en', options)
+    },
   },
 }
 </script>
 
-<style scoped>
-/* stylelint-disable */
-/* .v-card__text :v-deep(.nuxt-content h2) {
-  margin: 1em 0;
-  padding: 0.7em;
-  line-height: 1.6;
-  background-image: linear-gradient(
-    135deg,
-    #7085b6 0%,
-    #87a7d9 50%,
-    #def3f8 100%
-  );
+<style>
+html {
+  scroll-behavior: smooth;
 }
 
-.v-card__text :v-deep(div.nuxt-content) {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-} */
-
-.block-btn {
-  margin-top: 1em;
+.sticky-toc {
+  position: sticky;
+  top: 4rem;
+  align-self: start;
 }
-/* stylelint-enable */
+
+.main-title {
+  font-size: 36px;
+}
+
+.nuxt-content h2 {
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.nuxt-content p {
+  margin-bottom: 20px;
+}
+
+.nuxt-content hr {
+  color: solid white 1px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.nuxt-content pre {
+  margin-bottom: 40px;
+}
+
+div.nuxt-content {
+  padding-bottom: 5rem;
+  margin-bottom: 5rem;
+}
 </style>
